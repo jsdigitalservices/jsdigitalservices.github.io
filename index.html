@@ -9,452 +9,463 @@
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#faf8f2;
-    color:#222;
-    line-height:1.6;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #faf8f2;
+    color: #222;
+    line-height: 1.6;
 }
 
-/* HEADER */
-header{
-    background:#171717;
-    color:white;
-    padding:16px 4%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 3px 15px rgba(0,0,0,0.25);
+/* ================= HEADER ================= */
+
+header {
+    background: #171717;
+    color: white;
+    padding: 14px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.25);
 }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
-    color:white;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
 }
 
-.logo span{
-    color:#d4a72c;
+.logo img {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:28px;
-    font-weight:bold;
-    transition:0.3s;
+.logo span {
+    color: #d4a72c;
 }
 
-nav a:hover{
-    color:#d4a72c;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-/* HERO */
-.hero{
-    min-height:690px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:70px 20px;
-    background:
-        radial-gradient(circle at top,#fffdf7,#faf8f2 55%,#f2ead8);
+nav a:hover {
+    color: #d4a72c;
 }
 
-.hero-content{
-    max-width:1100px;
-    width:100%;
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px 20px;
+    background: radial-gradient(
+        circle at top,
+        #fffdf7,
+        #faf8f2 55%,
+        #f2ead8
+    );
 }
 
-.hero-logo{
-    width:150px;
-    height:150px;
-    object-fit:cover;
-    border-radius:18px;
-    margin-bottom:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.20);
+.hero-content {
+    max-width: 1100px;
+    width: 100%;
 }
 
-.hero h1{
-    font-size:62px;
-    color:#171717;
-    margin-bottom:10px;
-    font-weight:800;
+.hero-logo {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.20);
 }
 
-.hero h2{
-    font-size:30px;
-    color:#5b4817;
-    margin-bottom:25px;
+.hero h1 {
+    font-size: 60px;
+    color: #171717;
+    margin-bottom: 10px;
+    font-weight: 800;
 }
 
-.hero p{
-    max-width:900px;
-    margin:auto;
-    font-size:20px;
-    color:#555;
+.hero h2 {
+    font-size: 30px;
+    color: #5b4817;
+    margin-bottom: 25px;
 }
 
-/* BUTTONS */
-.buttons{
-    margin-top:35px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
+.hero p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 20px;
+    color: #555;
+}
+
+/* ================= BUTTONS ================= */
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .whatsapp,
-.services-btn{
-    display:inline-block;
-    padding:16px 30px;
-    border-radius:35px;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:17px;
-    transition:0.3s;
+.services-btn {
+    display: inline-block;
+    padding: 16px 30px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+    transition: 0.3s;
 }
 
-.whatsapp{
-    background:#25d366;
-    color:white;
+.whatsapp {
+    background: #25d366;
+    color: white;
 }
 
-.whatsapp:hover{
-    transform:translateY(-3px);
-    box-shadow:0 8px 20px rgba(37,211,102,0.3);
+.whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37,211,102,0.3);
 }
 
-.services-btn{
-    background:#171717;
-    color:#d4a72c;
-    border:2px solid #d4a72c;
+.services-btn {
+    background: #171717;
+    color: #d4a72c;
+    border: 2px solid #d4a72c;
 }
 
-.services-btn:hover{
-    background:#d4a72c;
-    color:#171717;
+.services-btn:hover {
+    background: #d4a72c;
+    color: #171717;
 }
 
-/* SECTIONS */
-section{
-    padding:80px 6%;
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 80px 6%;
 }
 
-.section-title{
-    text-align:center;
-    font-size:38px;
-    color:#171717;
-    margin-bottom:45px;
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    color: #171717;
+    margin-bottom: 45px;
 }
 
-.section-title::after{
-    content:"";
-    display:block;
-    width:70px;
-    height:4px;
-    background:#d4a72c;
-    margin:12px auto 0;
-    border-radius:5px;
+.section-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: #d4a72c;
+    margin: 12px auto 0;
+    border-radius: 5px;
 }
 
-/* SERVICES */
-.service-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
+/* ================= SERVICES ================= */
+
+.service-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
 
-.service{
-    background:white;
-    padding:30px 20px;
-    text-align:center;
-    border-radius:15px;
-    border:1px solid #ead9a8;
-    box-shadow:0 5px 20px rgba(0,0,0,0.07);
-    transition:0.3s;
+.service {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #ead9a8;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: 0.3s;
 }
 
-.service:hover{
-    transform:translateY(-7px);
-    border-color:#d4a72c;
-    box-shadow:0 12px 28px rgba(0,0,0,0.12);
+.service:hover {
+    transform: translateY(-7px);
+    border-color: #d4a72c;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-.icon{
-    font-size:45px;
-    margin-bottom:12px;
+.icon {
+    font-size: 45px;
+    margin-bottom: 12px;
 }
 
-.service h3{
-    color:#171717;
-    margin-bottom:8px;
+.service h3 {
+    color: #171717;
+    margin-bottom: 8px;
 }
 
-.service p{
-    color:#666;
+.service p {
+    color: #666;
 }
 
-/* ABOUT */
-.about-box{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:40px;
-    border-left:5px solid #d4a72c;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.07);
-    text-align:center;
-    font-size:18px;
+/* ================= ABOUT ================= */
+
+.about-box {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-left: 5px solid #d4a72c;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    text-align: center;
+    font-size: 18px;
 }
 
-/* WHY CHOOSE US */
-.why-grid{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
+.about-box p + p {
+    margin-top: 15px;
 }
 
-.why{
-    background:#171717;
-    color:white;
-    padding:30px 20px;
-    text-align:center;
-    border-radius:15px;
-    border-bottom:4px solid #d4a72c;
+/* ================= WHY CHOOSE US ================= */
+
+.why-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
 
-.why h3{
-    color:#d4a72c;
-    margin:12px 0 8px;
+.why {
+    background: #171717;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 15px;
+    border-bottom: 4px solid #d4a72c;
 }
 
-.why p{
-    color:#ddd;
+.why h3 {
+    color: #d4a72c;
+    margin: 12px 0 8px;
 }
 
-/* CONTACT */
-#contact{
-    text-align:center;
-    background:#f2ead8;
+.why p {
+    color: #ddd;
 }
 
-.number-box{
-    max-width:700px;
-    margin:30px auto 0;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
+/* ================= CONTACT ================= */
+
+#contact {
+    text-align: center;
+    background: #f2ead8;
 }
 
-.number{
-    background:white;
-    padding:18px 25px;
-    border-radius:12px;
-    border:1px solid #dfc77f;
-    font-weight:bold;
+.number-box {
+    max-width: 700px;
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.number a{
-    display:inline-block;
-    margin-left:10px;
-    color:#25a95a;
-    text-decoration:none;
+.number {
+    background: white;
+    padding: 18px 25px;
+    border-radius: 12px;
+    border: 1px solid #dfc77f;
+    font-weight: bold;
 }
 
-/* FOOTER */
-footer{
-    background:#171717;
-    color:white;
-    text-align:center;
-    padding:30px 20px;
+.number a {
+    display: inline-block;
+    margin-left: 10px;
+    color: #25a95a;
+    text-decoration: none;
 }
 
-footer strong{
-    color:#d4a72c;
+.number a:hover {
+    text-decoration: underline;
 }
 
-/* MOBILE */
-@media(max-width:900px){
+/* ================= FOOTER ================= */
 
-    .service-grid{
-        grid-template-columns:repeat(2,1fr);
+footer {
+    background: #171717;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer strong {
+    color: #d4a72c;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .why-grid{
-        grid-template-columns:repeat(2,1fr);
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .hero h1{
-        font-size:45px;
+    .hero h1 {
+        font-size: 45px;
     }
 
-    .hero h2{
-        font-size:24px;
+    .hero h2 {
+        font-size: 24px;
     }
 }
 
-@media(max-width:600px){
+@media (max-width: 600px) {
 
-    header{
-        flex-direction:column;
-        gap:15px;
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
     }
 
-    nav a{
-        margin:0 7px;
-        font-size:14px;
+    .logo {
+        font-size: 21px;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 14px;
     }
 
     .service-grid,
-    .why-grid{
-        grid-template-columns:1fr;
+    .why-grid {
+        grid-template-columns: 1fr;
     }
 
-    .hero{
-        min-height:600px;
+    .hero {
+        min-height: 600px;
     }
 
-    .hero h1{
-        font-size:38px;
+    .hero-logo {
+        width: 130px;
+        height: 130px;
     }
 
-    .hero h2{
-        font-size:21px;
+    .hero h1 {
+        font-size: 38px;
     }
 
-    .hero p{
-        font-size:17px;
+    .hero h2 {
+        font-size: 21px;
     }
 
-    section{
-        padding:60px 20px;
+    .hero p {
+        font-size: 17px;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 32px;
     }
 }
+
 </style>
 
 </head>
 
-
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
     <div class="logo">
 
-        <img
-        src="logo.jpg.jpeg"
-        alt="JS Digital Services Logo">
+        <img src="logo.jpg.jpeg" alt="JS Digital Services Logo">
 
-        <span>
-            JS Digital Services
-        </span>
+        <span>JS Digital Services</span>
 
     </div>
 
-
     <nav>
 
-        <a href="#home">
-            Home
-        </a>
-
-        <a href="#services">
-            Services
-        </a>
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#contact">
-            Contact
-        </a>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
 
     </nav>
 
 </header>
 
 
-
-<!-- =========================
-     HOME
-========================= -->
+<!-- ================= HOME ================= -->
 
 <section class="hero" id="home">
 
     <div class="hero-content">
 
-
         <img
-        class="hero-logo"
-        src="logo.jpg.jpeg"
-        alt="JS Digital Services">
+            class="hero-logo"
+            src="logo.jpg.jpeg"
+            alt="JS Digital Services">
 
+        <h1>JS Digital Services</h1>
 
-        <h1>
-            JS Digital Services
-        </h1>
-
-
-        <h2>
-            Your Trusted Digital & CSC Service Centre
-        </h2>
-
+        <h2>Your Trusted Digital & CSC Service Centre</h2>
 
         <p>
-
             We provide reliable online government services,
             document work, digital services, photo editing,
             printing and much more.
-
         </p>
-
 
         <div class="buttons">
 
-
             <a
-            class="whatsapp"
-            href="https://wa.me/917973905909"
-            target="_blank">
-
+                class="whatsapp"
+                href="https://wa.me/917973905909"
+                target="_blank">
                 💬 WhatsApp 7973905909
-
             </a>
-
 
             <a
-            class="services-btn"
-            href="#services">
-
+                class="services-btn"
+                href="#services">
                 📋 View Services
-
             </a>
-
 
         </div>
 
@@ -463,496 +474,233 @@ footer strong{
 </section>
 
 
-
-<!-- =========================
-     SERVICES
-========================= -->
+<!-- ================= SERVICES ================= -->
 
 <section id="services">
 
-    <h2 class="section-title">
-        Our Services
-    </h2>
-
+    <h2 class="section-title">Our Services</h2>
 
     <div class="service-grid">
 
-
         <div class="service">
-
-            <div class="icon">
-                🪪
-            </div>
-
-            <h3>
-                Aadhaar Services
-            </h3>
-
-            <p>
-                Aadhaar related online services
-                and assistance.
-            </p>
-
+            <div class="icon">🪪</div>
+            <h3>Aadhaar Services</h3>
+            <p>Aadhaar related online services and assistance.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                🗳️
-            </div>
-
-            <h3>
-                Voter Card
-            </h3>
-
-            <p>
-                New voter registration and
-                application assistance.
-            </p>
-
+            <div class="icon">🗳️</div>
+            <h3>Voter Card</h3>
+            <p>New voter registration and application assistance.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                🍚
-            </div>
-
-            <h3>
-                Ration Card
-            </h3>
-
-            <p>
-                New ration card and member
-                related services.
-            </p>
-
+            <div class="icon">🍚</div>
+            <h3>Ration Card</h3>
+            <p>New ration card and member related services.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                💳
-            </div>
-
-            <h3>
-                PAN Card
-            </h3>
-
-            <p>
-                PAN application, correction
-                and related services.
-            </p>
-
+            <div class="icon">💳</div>
+            <h3>PAN Card</h3>
+            <p>PAN application, correction and related services.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                🛂
-            </div>
-
-            <h3>
-                Passport
-            </h3>
-
-            <p>
-                Passport application assistance
-                and online forms.
-            </p>
-
+            <div class="icon">🛂</div>
+            <h3>Passport</h3>
+            <p>Passport application assistance and online forms.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                🚗
-            </div>
-
-            <h3>
-                Driving Licence
-            </h3>
-
-            <p>
-                Online driving licence
-                application assistance.
-            </p>
-
+            <div class="icon">🚗</div>
+            <h3>Driving Licence</h3>
+            <p>Online driving licence application assistance.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                📄
-            </div>
-
-            <h3>
-                Resume / CV
-            </h3>
-
-            <p>
-                Professional resume and
-                CV designing.
-            </p>
-
+            <div class="icon">📄</div>
+            <h3>Resume / CV</h3>
+            <p>Professional resume and CV designing.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                📸
-            </div>
-
-            <h3>
-                Photo Editing
-            </h3>
-
-            <p>
-                Passport photos, photo editing
-                and resizing.
-            </p>
-
+            <div class="icon">📸</div>
+            <h3>Photo Editing</h3>
+            <p>Passport photos, photo editing and resizing.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                🖨️
-            </div>
-
-            <h3>
-                Printing & Scanning
-            </h3>
-
-            <p>
-                Printing, scanning and
-                document services.
-            </p>
-
+            <div class="icon">🖨️</div>
+            <h3>Printing & Scanning</h3>
+            <p>Printing, scanning and document services.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                📝
-            </div>
-
-            <h3>
-                Online Forms
-            </h3>
-
-            <p>
-                Government and other online
-                application forms.
-            </p>
-
+            <div class="icon">📝</div>
+            <h3>Online Forms</h3>
+            <p>Government and other online application forms.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                🎫
-            </div>
-
-            <h3>
-                Ticket Booking
-            </h3>
-
-            <p>
-                Online ticket booking
-                assistance.
-            </p>
-
+            <div class="icon">🎫</div>
+            <h3>Ticket Booking</h3>
+            <p>Online ticket booking assistance.</p>
         </div>
 
-
-
         <div class="service">
-
-            <div class="icon">
-                💰
-            </div>
-
-            <h3>
-                Bill Payment
-            </h3>
-
-            <p>
-                Electricity and other online
-                bill payment services.
-            </p>
-
+            <div class="icon">💰</div>
+            <h3>Bill Payment</h3>
+            <p>Electricity and other online bill payment services.</p>
         </div>
-
 
     </div>
 
 </section>
 
 
+<!-- ================= ABOUT ================= -->
 
-<!-- =========================
-     ABOUT
-========================= -->
+<section id="about">
 
-<section
-class="about"
-id="about">
-
-
-    <h2 class="section-title">
-        About JS Digital Services
-    </h2>
-
+    <h2 class="section-title">About JS Digital Services</h2>
 
     <div class="about-box">
 
-
         <p>
-
-            <strong>
-                JS Digital Services
-            </strong>
-
-            is a digital service centre
-            providing various CSC,
-            online government,
-            documentation and
-            digital services.
-
+            <strong>JS Digital Services</strong> is a digital service
+            centre providing various CSC, online government,
+            documentation and digital services.
         </p>
 
-
         <p>
-
-            Our aim is to provide convenient,
-            reliable and affordable digital
-            assistance to customers.
-
+            Our aim is to provide convenient, reliable and
+            affordable digital assistance to customers.
         </p>
-
 
     </div>
 
 </section>
 
 
-
-<!-- =========================
-     WHY CHOOSE US
-========================= -->
+<!-- ================= WHY CHOOSE US ================= -->
 
 <section>
 
-
-    <h2 class="section-title">
-        Why Choose Us?
-    </h2>
-
+    <h2 class="section-title">Why Choose Us?</h2>
 
     <div class="why-grid">
 
-
         <div class="why">
 
-            <div style="font-size:40px;">
-                ⚡
-            </div>
+            <div style="font-size:40px;">⚡</div>
 
-            <h3>
-                Quick Service
-            </h3>
+            <h3>Quick Service</h3>
 
             <p>
-                Fast assistance for online
-                applications and documents.
+                Fast assistance for online applications and documents.
             </p>
 
         </div>
 
-
-
         <div class="why">
 
-            <div style="font-size:40px;">
-                🤝
-            </div>
+            <div style="font-size:40px;">🤝</div>
 
-            <h3>
-                Customer Support
-            </h3>
+            <h3>Customer Support</h3>
 
             <p>
-                Friendly assistance for your
-                digital service needs.
+                Friendly assistance for your digital service needs.
             </p>
 
         </div>
 
-
-
         <div class="why">
 
-            <div style="font-size:40px;">
-                🔒
-            </div>
+            <div style="font-size:40px;">🔒</div>
 
-            <h3>
-                Reliable
-            </h3>
+            <h3>Reliable</h3>
 
             <p>
-                We handle your service
-                requests carefully.
+                We handle your service requests carefully.
             </p>
 
         </div>
 
-
-
         <div class="why">
 
-            <div style="font-size:40px;">
-                💻
-            </div>
+            <div style="font-size:40px;">💻</div>
 
-            <h3>
-                Digital Services
-            </h3>
+            <h3>Digital Services</h3>
 
             <p>
-                Multiple digital services
-                available at one place.
+                Multiple digital services available at one place.
             </p>
 
         </div>
-
 
     </div>
 
 </section>
 
 
+<!-- ================= CONTACT ================= -->
 
-<!-- =========================
-     CONTACT
-========================= -->
+<section id="contact">
 
-<section
-class="contact"
-id="contact">
+    <h2 class="section-title">Contact Us</h2>
 
+    <p>📍 Kot Ise Khan, Moga, Punjab</p>
 
-    <h2 class="section-title">
-        Contact Us
-    </h2>
-
-
-    <p>
-        📍 Kot Ise Khan, Moga, Punjab
-    </p>
-
-
-    <p>
-        📱 Contact us on WhatsApp
-    </p>
-
+    <p>📱 Contact us on WhatsApp</p>
 
     <div class="number-box">
 
-
         <div class="number">
 
-            <span>
-                📱 7973905909
-            </span>
-
+            📱 7973905909
 
             <a
-            href="https://wa.me/917973905909"
-            target="_blank">
-
+                href="https://wa.me/917973905909"
+                target="_blank">
                 WhatsApp
-
             </a>
 
         </div>
 
-
-
         <div class="number">
 
-            <span>
-                📱 8699961210
-            </span>
-
+            📱 8699961210
 
             <a
-            href="https://wa.me/918699961210"
-            target="_blank">
-
+                href="https://wa.me/918699961210"
+                target="_blank">
                 WhatsApp
-
             </a>
 
         </div>
-
 
     </div>
-
 
 </section>
 
 
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-
     <p>
-        <strong>
-            JS Digital Services
-        </strong>
+        <strong>JS Digital Services</strong>
     </p>
 
+    <p>Kot Ise Khan, Moga, Punjab</p>
 
     <p>
-        Kot Ise Khan, Moga, Punjab
+        © 2026 JS Digital Services. All Rights Reserved.
     </p>
-
-
-    <p>
-        © 2026 JS Digital Services.
-        All Rights Reserved.
-    </p>
-
 
 </footer>
 
 
 </body>
-
 </html>
