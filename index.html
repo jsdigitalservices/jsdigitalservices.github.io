@@ -2476,7 +2476,25 @@ loadShopStatus();
 
 </script>
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
+  const firebaseConfig = {
+    const firebaseConfig = {
+  apiKey: "AIzaSyCqjMF4m68UZZ4IL9Fdvg4CWcPbmlt49Fk",
+  authDomain: "js-digital-services.firebaseapp.com",
+  projectId: "js-digital-services",
+  storageBucket: "js-digital-services.firebasestorage.app",
+  messagingSenderId: "189946883673",
+  appId: "1:189946883673:web:07a559d0fb54ec34740b48"
+};
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  console.log("Firebase connected successfully!");
+</script>
 </body>
 
 </html>
