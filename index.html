@@ -2493,8 +2493,19 @@ loadShopStatus();
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+const statusRef = doc(db, "siteSettings", "status");
+const statusSnap = await getDoc(statusRef);
+
+if (statusSnap.exists()) {
+  console.log("Firebase Status:", statusSnap.data());
+} else {
+  console.log("Status document nahi mila");
+}
   console.log("Firebase connected successfully!");
 </script>
+   
 </body>
 
 </html>
