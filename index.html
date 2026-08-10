@@ -170,27 +170,195 @@ nav a:hover {
 
 /* ================= SECTIONS ================= */
 
-section {
-    padding: 80px 6%;
+<!-- ================= HOME ONLINE SERVICES ================= -->
+
+<section class="home-service-section">
+
+    <div class="home-service-box">
+
+        <div class="home-service-icon">
+            🏠
+        </div>
+
+        <h2>
+            Ghar Baithe Online Services Paaye
+        </h2>
+
+        <p class="home-service-main">
+            Ab har online service ke liye centre par aana zaroori nahi!
+            Aap required documents <strong>WhatsApp par bhejkar</strong>
+            online service ke liye assistance le sakte hain.
+        </p>
+
+        <div class="home-service-grid">
+
+            <div>💳 <strong>PAN Card</strong></div>
+
+            <div>🛂 <strong>Passport</strong></div>
+
+            <div>🗳️ <strong>Voter Card</strong></div>
+
+            <div>🏥 <strong>Ayushman Card</strong></div>
+
+            <div>🍚 <strong>Ration Card</strong></div>
+
+            <div>🚗 <strong>Driving Licence</strong></div>
+
+            <div>📄 <strong>Online Forms</strong></div>
+
+            <div>📑 <strong>Certificates</strong></div>
+
+            <div>🖼️ <strong>Photo & Documents</strong></div>
+
+        </div>
+
+        <div class="home-service-note">
+
+            📲 <strong>Required Documents WhatsApp Par Bheje</strong>
+
+            <br>
+
+            Hum aapko application process aur required documents
+            ke baare mein guide karenge.
+
+        </div>
+
+        <a
+            class="home-whatsapp-btn"
+            href="https://wa.me/917973905909?text=Hello%2C%20mujhe%20ghar%20baithe%20online%20service%20ke%20baare%20mein%20jaankari%20chahiye."
+            target="_blank">
+
+            💬 WhatsApp Par Enquiry Karein
+
+        </a>
+
+        <p class="home-service-small">
+            *Service availability aur approval concerned department
+            ke rules aur eligibility par depend karta hai.
+        </p>
+
+    </div>
+
+</section>
+    /* ================= HOME ONLINE SERVICES ================= */
+
+.home-service-section {
+    background: #171717;
+    padding: 70px 6%;
 }
 
-.section-title {
+.home-service-box {
+    max-width: 1100px;
+    margin: auto;
+    background: #fffdf7;
+    padding: 45px;
     text-align: center;
-    font-size: 38px;
+    border-radius: 20px;
+    border: 2px solid #d4a72c;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.20);
+}
+
+.home-service-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.home-service-box h2 {
     color: #171717;
-    margin-bottom: 45px;
+    font-size: 38px;
+    margin-bottom: 15px;
 }
 
-.section-title::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 4px;
-    background: #d4a72c;
-    margin: 12px auto 0;
-    border-radius: 5px;
+.home-service-main {
+    max-width: 850px;
+    margin: auto;
+    color: #555;
+    font-size: 18px;
 }
 
+.home-service-grid {
+    max-width: 900px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.home-service-grid div {
+    background: white;
+    padding: 15px 10px;
+    border-radius: 10px;
+    border: 1px solid #ead9a8;
+    color: #333;
+    transition: 0.3s;
+}
+
+.home-service-grid div:hover {
+    transform: translateY(-3px);
+    border-color: #d4a72c;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.home-service-note {
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 18px;
+    background: #f2ead8;
+    border-radius: 10px;
+    color: #5b4817;
+}
+
+.home-whatsapp-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 16px 30px;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 35px;
+    font-size: 17px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.home-whatsapp-btn:hover {
+    background: #128c7e;
+    transform: translateY(-3px);
+}
+
+.home-service-small {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #777;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .home-service-section {
+        padding: 50px 18px;
+    }
+
+    .home-service-box {
+        padding: 30px 18px;
+    }
+
+    .home-service-box h2 {
+        font-size: 29px;
+    }
+
+    .home-service-main {
+        font-size: 16px;
+    }
+
+    .home-service-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+}
 /* ================= SERVICES ================= */
 
 .service-grid {
