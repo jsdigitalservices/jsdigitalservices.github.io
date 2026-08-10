@@ -1929,6 +1929,10 @@ csc47008@gmail.com
 🕐 Opening Hours
 </h3>
 
+<p style="margin-bottom:15px;color:#666;font-size:14px;">
+Live shop status is connected to Firebase.
+</p>
+
 
 <div class="status-buttons">
 
@@ -2478,31 +2482,57 @@ loadShopStatus();
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+  import {
+    getFirestore,
+    doc,
+    getDoc
+  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
   const firebaseConfig = {
-  apiKey: "AIzaSyCqjMF4m68UZZ4IL9Fdvg4CWcPbmlt49Fk",
-  authDomain: "js-digital-services.firebaseapp.com",
-  projectId: "js-digital-services",
-  storageBucket: "js-digital-services.firebasestorage.app",
-  messagingSenderId: "189946883673",
-  appId: "1:189946883673:web:07a559d0fb54ec34740b48"
-};
+    apiKey: "AIzaSyCqjMF4m68UZZ4IL9Fdvg4CWcPbmlt49Fk",
+    authDomain: "js-digital-services.firebaseapp.com",
+    projectId: "js-digital-services",
+    storageBucket: "js-digital-services.firebasestorage.app",
+    messagingSenderId: "189946883673",
+    appId: "1:189946883673:web:07a559d0fb54ec34740b48"
+  };
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+  async function loadFirebaseShopStatus() {
+    try {
+      const statusRef = doc(db, "siteSettings", "status");
+      const statusSnap = await getDoc(statusRef);
 
-const statusRef = doc(db, "siteSettings", "status");
-const statusSnap = await getDoc(statusRef);
+      if (!statusSnap.exists()) {
+        console.log("Status document nahi mila");
+        return;
+      }
 
-if (statusSnap.exists()) {
-  console.log("Firebase Status:", statusSnap.data());
-} else {
-  console.log("Status document nahi mila");
-}
-  console.log("Firebase connected successfully!");
+      const statusData = statusSnap.data();
+      console.log("Firebase Status:", statusData);
+      console.log("Firebase connected successfully!");
+
+      const shopStatus = document.getElementById("shopStatus");
+
+      if (statusData.isOpen === true) {
+        shopStatus.innerHTML = "🟢 Open Today";
+        shopStatus.style.background = "#e8f8ee";
+        shopStatus.style.color = "#16833b";
+        localStorage.setItem("shopStatus", "open");
+      } else {
+        shopStatus.innerHTML = "🔴 Closed Today";
+        shopStatus.style.background = "#fdeaea";
+        shopStatus.style.color = "#d32f2f";
+        localStorage.setItem("shopStatus", "closed");
+      }
+    } catch (error) {
+      console.error("Firebase status error:", error);
+    }
+  }
+
+  loadFirebaseShopStatus();
 </script>
    
 </body>
