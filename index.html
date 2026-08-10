@@ -1,779 +1,1000 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>JS Digital Services | Kot Ise Khan, Moga</title>
-
-<style>
-
-/* ================= GENERAL ================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f8fc;
-    color: #222;
-    line-height: 1.6;
-}
-
-section {
-    padding: 70px 6%;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 32px;
-    color: #123b68;
-    margin-bottom: 40px;
-}
-
-
-/* ================= HEADER ================= */
-
-header {
-    background: white;
-    padding: 12px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 21px;
-    font-weight: bold;
-    color: #123b68;
-}
-
-.logo img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-nav {
-    display: flex;
-    gap: 22px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-}
-
-nav a:hover {
-    color: #087fcb;
-}
-
-
-/* ================= HERO ================= */
-
-.hero {
-    min-height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 70px 20px;
-    background: linear-gradient(135deg, #eaf5ff, #ffffff);
-}
-
-.hero-content {
-    max-width: 850px;
-}
-
-.hero-logo {
-    width: 125px;
-    height: 125px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: 48px;
-    color: #123b68;
-    margin-bottom: 10px;
-}
-
-.hero h2 {
-    font-size: 24px;
-    color: #087fcb;
-    margin-bottom: 18px;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    font-size: 17px;
-    color: #555;
-}
-
-.buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.buttons a {
-    text-decoration: none;
-    padding: 13px 23px;
-    border-radius: 30px;
-    font-weight: bold;
-}
-
-.whatsapp {
-    background: #25D366;
-    color: white;
-}
-
-.call-btn {
-    background: #087fcb;
-    color: white;
-}
-
-.services-btn {
-    background: #123b68;
-    color: white;
-}
-
-
-/* ================================================= */
-/*              MOVING DIGITAL SERVICES              */
-/* ================================================= */
-
-.moving-services {
-    width: 100%;
-    overflow: hidden;
-    background: #123b68;
-    padding: 18px 0;
-    border-top: 3px solid #25D366;
-    border-bottom: 3px solid #25D366;
-}
-
-.moving-track {
-    display: flex;
-    width: max-content;
-    gap: 28px;
-    animation: moveServices 35s linear infinite;
-}
-
-.moving-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    color: #123b68;
-    padding: 11px 22px;
-    border-radius: 30px;
-    font-size: 15px;
-    font-weight: bold;
-    white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-}
-
-.moving-icon {
-    font-size: 25px;
-}
-
-
-/* Moving animation */
-
-@keyframes moveServices {
-
-    0% {
-        transform: translateX(100vw);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-
-}
-
-
-/* ================= SECOND MOVING STRIP ================= */
-
-.moving-strip {
-    width: 100%;
-    overflow: hidden;
-    background: #ffffff;
-    padding: 15px 0;
-    border-bottom: 1px solid #dce8f5;
-}
-
-.moving-strip-track {
-    display: flex;
-    width: max-content;
-    gap: 45px;
-    animation: moveReverse 30s linear infinite;
-}
-
-.moving-word {
-    font-size: 18px;
-    font-weight: bold;
-    color: #087fcb;
-    white-space: nowrap;
-}
-
-@keyframes moveReverse {
-
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100vw);
-    }
-
-}
-
-
-/* ================= SERVICES ================= */
-
-.service-grid {
-    max-width: 1150px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.service {
-    background: white;
-    padding: 28px 20px;
-    border-radius: 16px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-    transition: 0.3s;
-}
-
-.service:hover {
-    transform: translateY(-5px);
-}
-
-.service .icon {
-    font-size: 45px;
-    margin-bottom: 10px;
-}
-
-.service h3 {
-    color: #123b68;
-    margin-bottom: 8px;
-}
-
-.service p {
-    color: #666;
-    font-size: 15px;
-    margin-bottom: 18px;
-}
-
-.popular {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: #ff9800;
-    color: white;
-    font-size: 10px;
-    padding: 4px 8px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.service-btn {
-    display: inline-block;
-    background: #25D366;
-    color: white;
-    text-decoration: none;
-    padding: 9px 15px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-
-/* ================= HOME ONLINE SERVICES ================= */
-
-.home-online-services {
-    max-width: 1150px;
-    margin: 0 auto;
-    padding: 30px 6% 70px;
-}
-
-.home-service-content {
-    text-align: center;
-    padding: 50px 30px;
-    border-radius: 22px;
-    background: linear-gradient(135deg, #eef8ff, #ffffff);
-    border: 1px solid #d6e9f8;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-}
-
-.home-service-icon {
-    font-size: 52px;
-    margin-bottom: 10px;
-}
-
-.home-service-content h2 {
-    font-size: 32px;
-    color: #123b68;
-    margin-bottom: 15px;
-}
-
-.home-service-main {
-    font-size: 19px;
-    font-weight: bold;
-}
-
-.home-service-text {
-    max-width: 750px;
-    margin: 8px auto 25px;
-    color: #555;
-}
-
-.home-service-text strong {
-    color: #008f45;
-}
-
-.online-service-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    max-width: 950px;
-    margin: 25px auto;
-}
-
-.online-service-list span {
-    background: white;
-    padding: 10px 15px;
-    border-radius: 25px;
-    border: 1px solid #dce8f5;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.whatsapp-instruction {
-    font-size: 18px;
-    margin: 25px 0 18px;
-}
-
-.home-whatsapp-btn {
-    display: inline-block;
-    background: #25D366;
-    color: white;
-    text-decoration: none;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-size: 17px;
-    font-weight: bold;
-}
-
-
-/* ================= HOW IT WORKS ================= */
-
-.steps {
-    max-width: 1000px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.step {
-    background: white;
-    text-align: center;
-    padding: 30px 20px;
-    border-radius: 16px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.06);
-}
-
-.step-number {
-    width: 55px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto auto 15px;
-    background: #087fcb;
-    color: white;
-    border-radius: 50%;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-
-/* ================= ABOUT ================= */
-
-.about-box {
-    max-width: 900px;
-    margin: auto;
-    background: white;
-    padding: 35px;
-    border-radius: 16px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.06);
-    text-align: center;
-}
-
-.about-box p {
-    margin-bottom: 15px;
-}
-
-
-/* ================= WHY ================= */
-
-.why-grid {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.why {
-    background: white;
-    text-align: center;
-    padding: 28px 18px;
-    border-radius: 16px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.06);
-}
-
-.why-icon {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-.why h3 {
-    color: #123b68;
-    margin-bottom: 8px;
-}
-
-
-/* ================= REQUEST ================= */
-
-.request-box {
-    max-width: 700px;
-    margin: auto;
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 6px 22px rgba(0,0,0,0.07);
-}
-
-.request-box input,
-.request-box select,
-.request-box textarea {
-    width: 100%;
-    padding: 13px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
-}
-
-.request-box textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.request-btn {
-    width: 100%;
-    border: none;
-    padding: 14px;
-    background: #25D366;
-    color: white;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-/* ================= LOCATION ================= */
-
-.location-box {
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
-    background: white;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.06);
-}
-
-.location-box h3 {
-    color: #123b68;
-}
-
-.map-btn {
-    display: inline-block;
-    margin-top: 20px;
-    background: #087fcb;
-    color: white;
-    text-decoration: none;
-    padding: 12px 22px;
-    border-radius: 25px;
-    font-weight: bold;
-}
-
-
-/* ================= CONTACT ================= */
-
-.contact-section {
-    text-align: center;
-}
-
-.number-box {
-    max-width: 700px;
-    margin: 25px auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.number {
-    background: white;
-    padding: 22px;
-    border-radius: 15px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.06);
-    font-weight: bold;
-}
-
-.number a {
-    display: inline-block;
-    margin: 12px 5px 0;
-    padding: 7px 14px;
-    border-radius: 20px;
-    text-decoration: none;
-    color: white;
-    background: #25D366;
-    font-size: 13px;
-}
-
-.number a:last-child {
-    background: #087fcb;
-}
-
-
-/* ================= EMAIL ================= */
-
-.email-box {
-    max-width: 700px;
-    margin: 25px auto 0;
-    padding: 28px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.06);
-}
-
-.email-box h3 {
-    color: #123b68;
-    margin-bottom: 15px;
-}
-
-.email-box a {
-    display: block;
-    color: #087fcb;
-    text-decoration: none;
-    font-weight: 600;
-    margin: 10px 0;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer {
-    background: #123b68;
-    color: white;
-    padding: 50px 6% 20px;
-}
-
-.footer-grid {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr;
-    gap: 40px;
-}
-
-.footer-grid h3 {
-    margin-bottom: 15px;
-}
-
-.footer-grid a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 8px;
-}
-
-.copyright {
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    margin-top: 35px;
-    padding-top: 18px;
-    font-size: 14px;
-}
-
-
-/* ================= FLOATING WHATSAPP ================= */
-
-.floating-whatsapp {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 58px;
-    height: 58px;
-    background: #25D366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-size: 29px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.25);
-    z-index: 999;
-}
-
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 900px) {
-
-    .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .steps {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    header {
-        padding: 10px 15px;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    nav {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
-
-    .hero {
-        padding: 55px 18px;
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero h2 {
-        font-size: 19px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .service-grid,
-    .why-grid,
-    .number-box,
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title {
-        font-size: 27px;
-    }
-
-    .home-service-content {
-        padding: 35px 18px;
-    }
-
-    .home-service-content h2 {
-        font-size: 26px;
-    }
-
-    .home-service-main {
-        font-size: 17px;
-    }
-
-    .moving-track {
-        animation-duration: 25s;
-    }
-
-    .moving-item {
-        font-size: 12px;
-        padding: 8px 14px;
-    }
-
-    .moving-icon {
-        font-size: 20px;
-    }
-
-}
-
-
-/* ================= REDUCED MOTION ================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .moving-track,
-    .moving-strip-track {
-        animation: none;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="JS Digital Services - Digital & CSC Service Centre in Kot Ise Khan, Moga, Punjab. Online government services, PAN Card, Aadhaar, Passport, Voter Card, Ration Card, Ticket Booking, Printing and more.">
+
+    <title>JS Digital Services | Digital & CSC Service Centre</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: linear-gradient(135deg, #063970, #0875c1);
+            color: white;
+            padding: 14px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: white;
+            padding: 3px;
+        }
+
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+
+        nav a {
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            color: #ffd43b;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(
+                    rgba(3, 47, 88, 0.88),
+                    rgba(5, 100, 160, 0.88)
+                );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 70px 20px;
+        }
+
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+
+        .hero-logo {
+            width: 125px;
+            height: 125px;
+            object-fit: contain;
+            background: white;
+            padding: 8px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 18px;
+            color: #ffe66d;
+        }
+
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+
+        .buttons a {
+            padding: 13px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+        }
+
+
+        .buttons a:hover {
+            transform: translateY(-3px);
+        }
+
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+
+        .call-btn {
+            background: #ff9800;
+        }
+
+
+        .services-btn {
+            background: #e91e63;
+        }
+
+
+        /* =========================
+           MOVING SERVICES
+        ========================= */
+
+        .moving-section {
+            background: #ffffff;
+            padding: 35px 0;
+            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+        }
+
+
+        .moving-title {
+            text-align: center;
+            color: #063970;
+            font-size: 28px;
+            margin-bottom: 25px;
+            padding: 0 15px;
+        }
+
+
+        .moving-track {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+
+        .moving-service {
+            width: max-content;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+            padding: 13px 25px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            position: relative;
+            cursor: pointer;
+        }
+
+
+        .moving-service:hover {
+            animation-play-state: paused !important;
+            transform: scale(1.05);
+        }
+
+
+        .moving-icon {
+            font-size: 40px;
+            line-height: 1;
+        }
+
+
+        .moving-text {
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+
+        .moving-1 {
+            background: linear-gradient(90deg, #1565c0, #42a5f5);
+            animation: trainMove 13s linear infinite;
+        }
+
+
+        .moving-2 {
+            background: linear-gradient(90deg, #7b1fa2, #e040fb);
+            animation: flightMove 15s linear infinite;
+        }
+
+
+        .moving-3 {
+            background: linear-gradient(90deg, #00897b, #26a69a);
+            animation: printerMove 12s linear infinite;
+        }
+
+
+        .moving-4 {
+            background: linear-gradient(90deg, #ef6c00, #ffb300);
+            animation: digitalMove 14s linear infinite;
+        }
+
+
+        .moving-5 {
+            background: linear-gradient(90deg, #c2185b, #ec407a);
+            animation: digitalMove 16s linear infinite;
+        }
+
+
+        @keyframes trainMove {
+
+            0% {
+                transform: translateX(-500px);
+            }
+
+            100% {
+                transform: translateX(110vw);
+            }
+
+        }
+
+
+        @keyframes flightMove {
+
+            0% {
+                transform: translateX(110vw);
+            }
+
+            100% {
+                transform: translateX(-550px);
+            }
+
+        }
+
+
+        @keyframes printerMove {
+
+            0% {
+                transform: translateX(-500px);
+            }
+
+            100% {
+                transform: translateX(110vw);
+            }
+
+        }
+
+
+        @keyframes digitalMove {
+
+            0% {
+                transform: translateX(110vw);
+            }
+
+            100% {
+                transform: translateX(-600px);
+            }
+
+        }
+
+
+        /* Printer paper */
+
+        .paper {
+            display: inline-block;
+            background: white;
+            color: #333;
+            padding: 7px 10px;
+            border-radius: 3px;
+            font-size: 11px;
+            animation: paperPrint 1.5s ease-in-out infinite;
+        }
+
+
+        @keyframes paperPrint {
+
+            0% {
+                transform: translateY(-5px);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(8px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(15px);
+                opacity: 0.5;
+            }
+
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 70px 6%;
+        }
+
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            color: #063970;
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================
+           HOME ONLINE SERVICES
+        ========================= */
+
+        .home-service-box {
+            max-width: 1000px;
+            margin: auto;
+            background: linear-gradient(
+                135deg,
+                #e8f5ff,
+                #ffffff
+            );
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #d9ecff;
+        }
+
+
+        .home-service-box h2 {
+            color: #063970;
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+
+
+        .home-service-box .main-text {
+            font-size: 19px;
+            margin-bottom: 20px;
+        }
+
+
+        .home-service-box strong {
+            color: #008f4c;
+        }
+
+
+        .service-list {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+
+        .service-pill {
+            background: white;
+            border: 1px solid #d4e5f3;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+        }
+
+
+        .online-whatsapp {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+
+        .online-whatsapp:hover {
+            transform: scale(1.05);
+            background: #1ebe5d;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+
+        .service {
+            background: white;
+            padding: 28px 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            position: relative;
+            transition: 0.3s;
+        }
+
+
+        .service:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.13);
+        }
+
+
+        .popular {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e91e63;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+
+        .service h3 {
+            color: #063970;
+            margin-bottom: 10px;
+        }
+
+
+        .service p {
+            color: #666;
+            min-height: 55px;
+        }
+
+
+        .service-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #25D366;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+
+        .step {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            margin: auto auto 15px;
+            border-radius: 50%;
+            background: #0875c1;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+
+        .step h3 {
+            color: #063970;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            text-align: center;
+            font-size: 18px;
+        }
+
+
+        .about-box p {
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           WHY CHOOSE US
+        ========================= */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+
+        .why {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+        }
+
+
+        .why-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+
+        .why h3 {
+            color: #063970;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           REQUEST FORM
+        ========================= */
+
+        .request-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+        }
+
+
+        .request-box input,
+        .request-box select,
+        .request-box textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+
+        .request-box textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+
+        .request-btn {
+            width: 100%;
+            border: none;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+        .request-btn:hover {
+            background: #1ebe5d;
+        }
+
+
+        /* =========================
+           LOCATION
+        ========================= */
+
+        .location-box {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            text-align: center;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+
+        .location-box h3 {
+            color: #063970;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+
+        .map-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #4285F4;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            background: #eaf5ff;
+            text-align: center;
+        }
+
+
+        .number-box {
+            max-width: 800px;
+            margin: 25px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+
+        .number {
+            background: white;
+            padding: 22px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+
+        .number a {
+            display: inline-block;
+            margin: 10px 5px 0;
+            padding: 8px 14px;
+            border-radius: 20px;
+            color: white;
+            font-size: 14px;
+        }
+
+
+        .number a:first-of-type {
+            background: #25D366;
+        }
+
+
+        .number a:last-of-type {
+            background: #0875c1;
+        }
+
+
+        /* =========================
+           EMAIL
+        ========================= */
+
+        .email-box {
+            max-width: 800px;
+            margin: 25px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+
+        .email-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+        }
+
+
+        .email-card a {
+            color: #0875c1;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #052c4f;
+            color: white;
+            padding: 50px 6% 20px;
+        }
+
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        .footer-grid h3 {
+            margin-bottom: 15px;
+            color: #ffe66d;
+        }
+
+
+        .footer-grid a {
+            color: white;
+            display: block;
+            margin: 7px 0;
+        }
+
+
+        .footer-grid a:hover {
+            color: #ffe66d;
+        }
+
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 35px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+
+        /* =========================
+           FLOATING WHATSAPP
+        ========================= */
+
+        .floating-whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            animation: whatsappPulse 2s infinite;
+        }
+
+
+        @keyframes whatsappPulse {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+
+            nav a {
+                font-size: 14px;
+            }
+
+
+            .hero {
+                min-height: 600px;
+            }
+
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+
+            .hero p {
+                font-size: 16px;
+            }
+
+
+            section {
+                padding: 50px 5%;
+            }
+
+
+            .section-title {
+                font-size: 28px;
+            }
+
+
+            .service-grid,
+            .why-grid,
+            .steps,
+            .number-box,
+            .email-box,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .home-service-box {
+                padding: 25px 18px;
+            }
+
+
+            .home-service-box h2 {
+                font-size: 25px;
+            }
+
+
+            .moving-service {
+                font-size: 15px;
+                padding: 10px 18px;
+            }
+
+
+            .moving-icon {
+                font-size: 32px;
+            }
+
+
+            .moving-text {
+                font-size: 14px;
+            }
+
+
+            .footer-grid {
+                gap: 25px;
+            }
+
+        }
+
+    </style>
 
 </head>
+
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -803,7 +1024,10 @@ footer {
 </header>
 
 
-<!-- ================= HERO ================= -->
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="home">
 
@@ -814,18 +1038,17 @@ footer {
             src="logo.jpg.jpeg"
             alt="JS Digital Services">
 
-        <h1>
-            JS Digital Services
-        </h1>
 
-        <h2>
-            Your Trusted Digital & CSC Service Centre
-        </h2>
+        <h1>JS Digital Services</h1>
+
+
+        <h2>Your Trusted Digital & CSC Service Centre</h2>
+
 
         <p>
             We provide reliable online government services,
             documentation, digital services, photo editing,
-            printing and much more.
+            printing, ticket booking and much more.
         </p>
 
 
@@ -865,1231 +1088,1304 @@ footer {
 </section>
 
 
-<!-- ================================================= -->
-<!--              MOVING SERVICE ANIMATION              -->
-<!-- ================================================= -->
 
-<div class="moving-services">
+<!-- =========================
+     MOVING SERVICES
+========================= -->
+
+<section class="moving-section">
+
+    <h2 class="moving-title">
+        🚀 Our Digital Services — Click Any Service
+    </h2>
+
 
     <div class="moving-track">
 
 
-        <div class="moving-item">
+        <!-- TRAIN -->
+
+        <a
+            class="moving-service moving-1"
+            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Train%20Ticket%20Booking."
+            target="_blank">
+
             <span class="moving-icon">🚆</span>
-            TRAIN TICKET BOOKING
-        </div>
+
+            <span class="moving-text">
+                TRAIN TICKET BOOKING
+            </span>
+
+        </a>
 
 
-        <div class="moving-item">
+
+        <!-- FLIGHT -->
+
+        <a
+            class="moving-service moving-2"
+            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Flight%20Ticket%20Booking."
+            target="_blank">
+
             <span class="moving-icon">✈️</span>
-            FLIGHT TICKET BOOKING
-        </div>
 
-
-        <div class="moving-item">
-            <span class="moving-icon">🖨️</span>
-            PRINTING SERVICES
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">💳</span>
-            PAN CARD SERVICES
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">🪪</span>
-            AADHAAR SERVICES
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">🛂</span>
-            PASSPORT SERVICES
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">🗳️</span>
-            VOTER CARD SERVICES
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">🍚</span>
-            RATION CARD SERVICES
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">🏥</span>
-            AYUSHMAN CARD
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">📱</span>
-            ONLINE SERVICES
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">📄</span>
-            ONLINE FORMS
-        </div>
-
-
-        <div class="moving-item">
-            <span class="moving-icon">📸</span>
-            PHOTO EDITING
-        </div>
-
-
-    </div>
-
-</div>
-
-
-<!-- ================= SECOND MOVING LINE ================= -->
-
-<div class="moving-strip">
-
-    <div class="moving-strip-track">
-
-        <div class="moving-word">
-            🚆 TRAIN TICKET BOOKING
-        </div>
-
-        <div class="moving-word">
-            ✈️ FLIGHT TICKET BOOKING
-        </div>
-
-        <div class="moving-word">
-            🖨️ PRINT & SCAN
-        </div>
-
-        <div class="moving-word">
-            💳 PAN CARD
-        </div>
-
-        <div class="moving-word">
-            🪪 AADHAAR
-        </div>
-
-        <div class="moving-word">
-            🛂 PASSPORT
-        </div>
-
-        <div class="moving-word">
-            🗳️ VOTER CARD
-        </div>
-
-        <div class="moving-word">
-            🍚 RATION CARD
-        </div>
-
-        <div class="moving-word">
-            🏥 AYUSHMAN CARD
-        </div>
-
-        <div class="moving-word">
-            📱 ONLINE SERVICE
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= SERVICES ================= -->
-
-<section id="services">
-
-<h2 class="section-title">
-    Our Services
-</h2>
-
-
-<div class="service-grid">
-
-
-    <div class="service">
-
-        <span class="popular">
-            POPULAR
-        </span>
-
-        <div class="icon">
-            🪪
-        </div>
-
-        <h3>
-            Aadhaar Services
-        </h3>
-
-        <p>
-            Aadhaar related online services and assistance.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Aadhaar%20Services."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
+            <span class="moving-text">
+                FLIGHT TICKET BOOKING
+            </span>
 
         </a>
 
-    </div>
 
 
-    <div class="service">
-
-        <span class="popular">
-            POPULAR
-        </span>
-
-        <div class="icon">
-            🗳️
-        </div>
-
-        <h3>
-            Voter Card
-        </h3>
-
-        <p>
-            New voter registration and application assistance.
-        </p>
+        <!-- PRINTER -->
 
         <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Voter%20Card."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <span class="popular">
-            POPULAR
-        </span>
-
-        <div class="icon">
-            🍚
-        </div>
-
-        <h3>
-            Ration Card
-        </h3>
-
-        <p>
-            New ration card and member related services.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Ration%20Card."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <span class="popular">
-            POPULAR
-        </span>
-
-        <div class="icon">
-            💳
-        </div>
-
-        <h3>
-            PAN Card
-        </h3>
-
-        <p>
-            PAN application, correction and related services.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20PAN%20Card."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <div class="icon">
-            🛂
-        </div>
-
-        <h3>
-            Passport
-        </h3>
-
-        <p>
-            Passport application assistance and online forms.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Passport%20Services."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <div class="icon">
-            🚗
-        </div>
-
-        <h3>
-            Driving Licence
-        </h3>
-
-        <p>
-            Online driving licence application assistance.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Driving%20Licence."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <div class="icon">
-            🏥
-        </div>
-
-        <h3>
-            Ayushman Card
-        </h3>
-
-        <p>
-            Ayushman card related online assistance.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Ayushman%20Card."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <div class="icon">
-            📑
-        </div>
-
-        <h3>
-            Certificates
-        </h3>
-
-        <p>
-            Online certificate application assistance.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Certificates."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <div class="icon">
-            📄
-        </div>
-
-        <h3>
-            Resume / CV
-        </h3>
-
-        <p>
-            Professional resume and CV designing.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Resume%20or%20CV%20Designing."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <div class="icon">
-            📸
-        </div>
-
-        <h3>
-            Photo Editing
-        </h3>
-
-        <p>
-            Passport photos, photo editing and resizing.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Photo%20Editing."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-
-    <div class="service">
-
-        <div class="icon">
-            🖨️
-        </div>
-
-        <h3>
-            Printing & Scanning
-        </h3>
-
-        <p>
-            Printing, scanning and document services.
-        </p>
-
-        <a
-            class="service-btn"
+            class="moving-service moving-3"
             href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Printing%20and%20Scanning."
             target="_blank">
 
-            📲 WhatsApp Enquiry
+            <span class="moving-icon">🖨️</span>
+
+            <span class="paper">
+                PRINT
+            </span>
+
+            <span class="moving-text">
+                PRINTING & SCANNING
+            </span>
 
         </a>
 
-    </div>
 
 
-    <div class="service">
-
-        <div class="icon">
-            📝
-        </div>
-
-        <h3>
-            Online Forms
-        </h3>
-
-        <p>
-            Government and other online application forms.
-        </p>
+        <!-- PAN -->
 
         <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Online%20Forms."
+            class="moving-service moving-4"
+            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20PAN%20Card."
             target="_blank">
 
-            📲 WhatsApp Enquiry
+            <span class="moving-icon">💳</span>
+
+            <span class="moving-text">
+                PAN CARD SERVICES
+            </span>
 
         </a>
 
-    </div>
 
 
-    <div class="service">
-
-        <div class="icon">
-            🎫
-        </div>
-
-        <h3>
-            Ticket Booking
-        </h3>
-
-        <p>
-            Train, flight and online ticket booking assistance.
-        </p>
+        <!-- AADHAAR -->
 
         <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Ticket%20Booking."
+            class="moving-service moving-5"
+            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Aadhaar%20Services."
             target="_blank">
 
-            📲 WhatsApp Enquiry
+            <span class="moving-icon">🪪</span>
+
+            <span class="moving-text">
+                AADHAAR SERVICES
+            </span>
 
         </a>
 
     </div>
-
-
-    <div class="service">
-
-        <div class="icon">
-            💰
-        </div>
-
-        <h3>
-            Bill Payment
-        </h3>
-
-        <p>
-            Electricity and other online bill payment services.
-        </p>
-
-        <a
-            class="service-btn"
-            href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Bill%20Payment."
-            target="_blank">
-
-            📲 WhatsApp Enquiry
-
-        </a>
-
-    </div>
-
-</div>
 
 </section>
 
 
-<!-- ================= HOME ONLINE SERVICES ================= -->
 
-<div class="home-online-services">
+<!-- =========================
+     HOME ONLINE SERVICES
+========================= -->
 
-    <div class="home-service-content">
+<section>
 
-        <div class="home-service-icon">
-            🏠
-        </div>
+    <div class="home-service-box">
 
         <h2>
-            Ghar Baithe Online Services Paaye
+            🏠 Ghar Baithe Online Services Paaye
         </h2>
 
-        <p class="home-service-main">
-            Ab har online service ke liye centre par aana zaroori nahi!
-        </p>
 
-        <p class="home-service-text">
+        <p class="main-text">
+
+            Ab har online service ke liye centre par
+            aana zaroori nahi!
 
             Required documents
             <strong>WhatsApp par bhejiye</strong>
-            aur ghar baithe online service ke liye assistance paaiye.
+            aur online service ke liye assistance paaiye.
 
         </p>
 
 
-        <div class="online-service-list">
+        <div class="service-list">
 
-            <span>💳 PAN Card</span>
-            <span>🛂 Passport</span>
-            <span>🗳️ Voter Card</span>
-            <span>🏥 Ayushman Card</span>
-            <span>🍚 Ration Card</span>
-            <span>🚗 Driving Licence</span>
-            <span>📄 Online Forms</span>
-            <span>📑 Certificates</span>
-            <span>🖼️ Photo & Documents</span>
+            <span class="service-pill">
+                💳 PAN Card
+            </span>
+
+            <span class="service-pill">
+                🛂 Passport
+            </span>
+
+            <span class="service-pill">
+                🗳️ Voter Card
+            </span>
+
+            <span class="service-pill">
+                🏥 Ayushman Card
+            </span>
+
+            <span class="service-pill">
+                🍚 Ration Card
+            </span>
+
+            <span class="service-pill">
+                🚗 Driving Licence
+            </span>
+
+            <span class="service-pill">
+                📄 Online Forms
+            </span>
+
+            <span class="service-pill">
+                📑 Certificates
+            </span>
+
+            <span class="service-pill">
+                🖼️ Photo & Documents
+            </span>
 
         </div>
 
 
-        <p class="whatsapp-instruction">
-
-            📲
-            <strong>
-                Required Documents WhatsApp Par Bheje
-            </strong>
-
-        </p>
-
-
         <a
-            class="home-whatsapp-btn"
+            class="online-whatsapp"
             href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20get%20an%20online%20service%20from%20home."
             target="_blank">
 
-            🟢 WhatsApp Par Enquiry Karein
+            📲 Required Documents WhatsApp Par Bheje
 
         </a>
 
     </div>
 
-</div>
+</section>
 
 
-<!-- ================= HOW IT WORKS ================= -->
 
-<section>
+<!-- =========================
+     SERVICES
+========================= -->
 
-<h2 class="section-title">
-    How It Works
-</h2>
+<section id="services">
+
+    <h2 class="section-title">
+        Our Services
+    </h2>
 
 
-<div class="steps">
+    <div class="service-grid">
 
 
-    <div class="step">
+        <!-- Aadhaar -->
 
-        <div class="step-number">
-            1
+        <div class="service">
+
+            <span class="popular">
+                POPULAR
+            </span>
+
+            <div class="icon">
+                🪪
+            </div>
+
+            <h3>
+                Aadhaar Services
+            </h3>
+
+            <p>
+                Aadhaar related online services
+                and assistance.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Aadhaar%20Services."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
         </div>
 
-        <h3>
-            Choose a Service
-        </h3>
-
-        <p>
-            Select the service you need from our service list.
-        </p>
-
-    </div>
 
 
-    <div class="step">
+        <!-- Voter -->
 
-        <div class="step-number">
-            2
+        <div class="service">
+
+            <span class="popular">
+                POPULAR
+            </span>
+
+            <div class="icon">
+                🗳️
+            </div>
+
+            <h3>
+                Voter Card
+            </h3>
+
+            <p>
+                New voter registration and
+                application assistance.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Voter%20Card."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
         </div>
 
-        <h3>
-            Send Enquiry
-        </h3>
-
-        <p>
-            Contact us on WhatsApp and tell us what you need.
-        </p>
-
-    </div>
 
 
-    <div class="step">
+        <!-- Ration -->
 
-        <div class="step-number">
-            3
+        <div class="service">
+
+            <span class="popular">
+                POPULAR
+            </span>
+
+            <div class="icon">
+                🍚
+            </div>
+
+            <h3>
+                Ration Card
+            </h3>
+
+            <p>
+                New ration card and member
+                related services.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Ration%20Card."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
         </div>
 
-        <h3>
-            Get Assistance
-        </h3>
 
-        <p>
-            We will guide you regarding the required documents
-            and application process.
-        </p>
+
+        <!-- PAN -->
+
+        <div class="service">
+
+            <span class="popular">
+                POPULAR
+            </span>
+
+            <div class="icon">
+                💳
+            </div>
+
+            <h3>
+                PAN Card
+            </h3>
+
+            <p>
+                PAN application, correction
+                and related services.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20PAN%20Card."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Passport -->
+
+        <div class="service">
+
+            <div class="icon">
+                🛂
+            </div>
+
+            <h3>
+                Passport
+            </h3>
+
+            <p>
+                Passport application assistance
+                and online forms.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Passport%20Services."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Driving -->
+
+        <div class="service">
+
+            <div class="icon">
+                🚗
+            </div>
+
+            <h3>
+                Driving Licence
+            </h3>
+
+            <p>
+                Online driving licence
+                application assistance.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Driving%20Licence."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Resume -->
+
+        <div class="service">
+
+            <div class="icon">
+                📄
+            </div>
+
+            <h3>
+                Resume / CV
+            </h3>
+
+            <p>
+                Professional resume and
+                CV designing.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Resume%20or%20CV%20Designing."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Photo -->
+
+        <div class="service">
+
+            <div class="icon">
+                📸
+            </div>
+
+            <h3>
+                Photo Editing
+            </h3>
+
+            <p>
+                Passport photos, photo editing
+                and resizing.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Photo%20Editing."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Printing -->
+
+        <div class="service">
+
+            <div class="icon">
+                🖨️
+            </div>
+
+            <h3>
+                Printing & Scanning
+            </h3>
+
+            <p>
+                Printing, scanning and
+                document services.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Printing%20and%20Scanning."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Forms -->
+
+        <div class="service">
+
+            <div class="icon">
+                📝
+            </div>
+
+            <h3>
+                Online Forms
+            </h3>
+
+            <p>
+                Government and other online
+                application forms.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Online%20Forms."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Train -->
+
+        <div class="service">
+
+            <div class="icon">
+                🚆
+            </div>
+
+            <h3>
+                Train Ticket Booking
+            </h3>
+
+            <p>
+                Online train ticket booking
+                assistance.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Train%20Ticket%20Booking."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Flight -->
+
+        <div class="service">
+
+            <div class="icon">
+                ✈️
+            </div>
+
+            <h3>
+                Flight Ticket Booking
+            </h3>
+
+            <p>
+                Flight ticket booking
+                assistance.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Flight%20Ticket%20Booking."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Bill -->
+
+        <div class="service">
+
+            <div class="icon">
+                💰
+            </div>
+
+            <h3>
+                Bill Payment
+            </h3>
+
+            <p>
+                Electricity and other online
+                bill payment services.
+            </p>
+
+            <a
+                class="service-btn"
+                href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Bill%20Payment."
+                target="_blank">
+
+                📲 WhatsApp Enquiry
+
+            </a>
+
+        </div>
 
     </div>
-
-
-</div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section>
+
+    <h2 class="section-title">
+        How It Works
+    </h2>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <h3>
+                Choose a Service
+            </h3>
+
+            <p>
+                Select the service you need
+                from our service list.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <h3>
+                Send Enquiry
+            </h3>
+
+            <p>
+                Contact us on WhatsApp and
+                tell us what you need.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <h3>
+                Get Assistance
+            </h3>
+
+            <p>
+                We will guide you regarding
+                required documents and
+                application process.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
-<h2 class="section-title">
-    About JS Digital Services
-</h2>
+    <h2 class="section-title">
+        About JS Digital Services
+    </h2>
 
 
-<div class="about-box">
+    <div class="about-box">
 
-    <p>
+        <p>
 
-        <strong>
-            JS Digital Services
-        </strong>
+            <strong>
+                JS Digital Services
+            </strong>
 
-        is a digital service centre providing various CSC,
-        online government, documentation and digital services.
+            is a digital service centre
+            providing various CSC, online government,
+            documentation and digital services.
 
-    </p>
+        </p>
 
 
-    <p>
+        <p>
 
-        Our aim is to provide convenient, reliable and
-        affordable digital assistance to customers.
+            Our aim is to provide convenient,
+            reliable and affordable digital
+            assistance to customers.
 
-    </p>
+        </p>
 
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= WHY CHOOSE US ================= -->
+
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
 
 <section>
 
-<h2 class="section-title">
-    Why Choose Us?
-</h2>
+    <h2 class="section-title">
+        Why Choose Us?
+    </h2>
 
 
-<div class="why-grid">
+    <div class="why-grid">
 
 
-    <div class="why">
+        <div class="why">
 
-        <div class="why-icon">
-            ⚡
+            <div class="why-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Quick Service
+            </h3>
+
+            <p>
+                Fast assistance for online
+                applications and documents.
+            </p>
+
         </div>
 
-        <h3>
-            Quick Service
-        </h3>
 
-        <p>
-            Fast assistance for online applications and documents.
-        </p>
+        <div class="why">
 
-    </div>
+            <div class="why-icon">
+                🤝
+            </div>
 
+            <h3>
+                Customer Support
+            </h3>
 
-    <div class="why">
+            <p>
+                Friendly assistance for your
+                digital service needs.
+            </p>
 
-        <div class="why-icon">
-            🤝
         </div>
 
-        <h3>
-            Customer Support
-        </h3>
 
-        <p>
-            Friendly assistance for your digital service needs.
-        </p>
+        <div class="why">
 
-    </div>
+            <div class="why-icon">
+                🔒
+            </div>
 
+            <h3>
+                Reliable
+            </h3>
 
-    <div class="why">
+            <p>
+                We handle your service requests
+                carefully.
+            </p>
 
-        <div class="why-icon">
-            🔒
         </div>
 
-        <h3>
-            Reliable
-        </h3>
 
-        <p>
-            We handle your service requests carefully.
-        </p>
+        <div class="why">
 
-    </div>
+            <div class="why-icon">
+                💻
+            </div>
 
+            <h3>
+                Multiple Services
+            </h3>
 
-    <div class="why">
+            <p>
+                Multiple digital services
+                available at one place.
+            </p>
 
-        <div class="why-icon">
-            💻
         </div>
 
-        <h3>
-            Multiple Services
-        </h3>
-
-        <p>
-            Multiple digital services available at one place.
-        </p>
-
     </div>
-
-
-</div>
 
 </section>
 
 
-<!-- ================= REQUEST SERVICE ================= -->
+
+<!-- =========================
+     REQUEST SERVICE
+========================= -->
 
 <section id="request">
 
-<h2 class="section-title">
-    Request a Service
-</h2>
+    <h2 class="section-title">
+        Request a Service
+    </h2>
 
 
-<div class="request-box">
+    <div class="request-box">
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Your Name">
 
 
-    <input
-        type="text"
-        id="customerName"
-        placeholder="Your Name">
+        <select id="serviceSelect">
+
+            <option value="">
+                Select a Service
+            </option>
+
+            <option>Aadhaar Services</option>
+
+            <option>Voter Card</option>
+
+            <option>Ration Card</option>
+
+            <option>PAN Card</option>
+
+            <option>Passport</option>
+
+            <option>Driving Licence</option>
+
+            <option>Resume / CV</option>
+
+            <option>Photo Editing</option>
+
+            <option>Printing & Scanning</option>
+
+            <option>Online Forms</option>
+
+            <option>Train Ticket Booking</option>
+
+            <option>Flight Ticket Booking</option>
+
+            <option>Ticket Booking</option>
+
+            <option>Bill Payment</option>
+
+        </select>
 
 
-    <select id="serviceSelect">
-
-        <option value="">
-            Select a Service
-        </option>
-
-        <option>
-            Aadhaar Services
-        </option>
-
-        <option>
-            Voter Card
-        </option>
-
-        <option>
-            Ration Card
-        </option>
-
-        <option>
-            PAN Card
-        </option>
-
-        <option>
-            Passport
-        </option>
-
-        <option>
-            Driving Licence
-        </option>
-
-        <option>
-            Ayushman Card
-        </option>
-
-        <option>
-            Certificates
-        </option>
-
-        <option>
-            Resume / CV
-        </option>
-
-        <option>
-            Photo Editing
-        </option>
-
-        <option>
-            Printing & Scanning
-        </option>
-
-        <option>
-            Online Forms
-        </option>
-
-        <option>
-            Train Ticket Booking
-        </option>
-
-        <option>
-            Flight Ticket Booking
-        </option>
-
-        <option>
-            Bill Payment
-        </option>
-
-    </select>
+        <textarea
+            id="customerMessage"
+            placeholder="Write your requirement..."></textarea>
 
 
-    <textarea
-        id="customerMessage"
-        placeholder="Write your requirement..."></textarea>
+        <button
+            class="request-btn"
+            onclick="sendRequest()">
 
+            💬 Send Request on WhatsApp
 
-    <button
-        class="request-btn"
-        onclick="sendRequest()">
+        </button>
 
-        💬 Send Request on WhatsApp
-
-    </button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= LOCATION ================= -->
+
+<!-- =========================
+     LOCATION
+========================= -->
 
 <section id="location">
 
-<h2 class="section-title">
-    Visit Us
-</h2>
+    <h2 class="section-title">
+        Visit Us
+    </h2>
 
 
-<div class="location-box">
-
-    <h3>
-        📍 JS Digital Services
-    </h3>
-
-    <p>
-
-        Near SBI Bank, Amritsar Road,<br>
-        Kot Ise Khan, Moga, Punjab
-
-    </p>
-
-
-    <a
-        class="map-btn"
-        href="https://www.google.com/maps/search/?api=1&query=State+Bank+of+India+Kot+Ise+Khan+Amritsar+Road+Moga+Punjab"
-        target="_blank">
-
-        📍 Open Location in Google Maps
-
-    </a>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="contact-section">
-
-<h2 class="section-title">
-    Contact Us
-</h2>
-
-
-<p>
-    📍 Kot Ise Khan, Moga, Punjab
-</p>
-
-
-<p>
-    📱 Contact us on WhatsApp, Call or Email
-</p>
-
-
-<div class="number-box">
-
-
-    <div class="number">
-
-        📱 7973905909
-
-        <br>
-
-        <a
-            href="https://wa.me/917973905909"
-            target="_blank">
-
-            WhatsApp
-
-        </a>
-
-        <a
-            href="tel:+917973905909">
-
-            Call
-
-        </a>
-
-    </div>
-
-
-    <div class="number">
-
-        📱 8699961210
-
-        <br>
-
-        <a
-            href="https://wa.me/918699961210"
-            target="_blank">
-
-            WhatsApp
-
-        </a>
-
-        <a
-            href="tel:+918699961210">
-
-            Call
-
-        </a>
-
-    </div>
-
-
-</div>
-
-
-<div class="email-box">
-
-    <h3>
-        📧 Email Us
-    </h3>
-
-
-    <a href="mailto:dcentre748@gmail.com">
-
-        📧 dcentre748@gmail.com
-
-    </a>
-
-
-    <a href="mailto:csc47008@gmail.com">
-
-        📧 csc47008@gmail.com
-
-    </a>
-
-</div>
-
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-
-<div class="footer-grid">
-
-
-    <div>
+    <div class="location-box">
 
         <h3>
-            JS Digital Services
+            📍 JS Digital Services
         </h3>
+
 
         <p>
 
-            Your trusted digital & CSC service centre
-            in Kot Ise Khan, Moga.
+            Near SBI Bank, Amritsar Road,<br>
 
-        </p>
-
-        <p style="margin-top:12px;">
-
-            📍 Near SBI Bank, Amritsar Road,
             Kot Ise Khan, Moga, Punjab
 
         </p>
 
-    </div>
-
-
-    <div>
-
-        <h3>
-            Quick Links
-        </h3>
-
-        <a href="#home">
-            Home
-        </a>
-
-        <a href="#services">
-            Services
-        </a>
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#request">
-            Request a Service
-        </a>
-
-        <a href="#location">
-            Location
-        </a>
-
-        <a href="#contact">
-            Contact
-        </a>
-
-    </div>
-
-
-    <div>
-
-        <h3>
-            Contact
-        </h3>
-
-        <a href="tel:+917973905909">
-            📞 7973905909
-        </a>
 
         <a
-            href="https://wa.me/917973905909"
+            class="map-btn"
+            href="https://www.google.com/maps/search/?api=1&query=State+Bank+of+India+Kot+Ise+Khan+Amritsar+Road+Moga+Punjab"
             target="_blank">
 
-            💬 WhatsApp
+            📍 Open Location in Google Maps
 
-        </a>
-
-        <a href="tel:+918699961210">
-            📞 8699961210
-        </a>
-
-        <a
-            href="https://wa.me/918699961210"
-            target="_blank">
-
-            💬 WhatsApp
-
-        </a>
-
-        <a href="mailto:dcentre748@gmail.com">
-            📧 dcentre748@gmail.com
-        </a>
-
-        <a href="mailto:csc47008@gmail.com">
-            📧 csc47008@gmail.com
         </a>
 
     </div>
 
+</section>
 
-</div>
 
 
-<div class="copyright">
+<!-- =========================
+     CONTACT
+========================= -->
 
-    © 2026 JS Digital Services. All Rights Reserved.
+<section
+    class="contact-section"
+    id="contact">
 
-</div>
+    <h2 class="section-title">
+        Contact Us
+    </h2>
 
+
+    <p>
+        📍 Kot Ise Khan, Moga, Punjab
+    </p>
+
+
+    <p>
+        📱 Contact us on WhatsApp or Call
+    </p>
+
+
+    <div class="number-box">
+
+
+        <div class="number">
+
+            📱 7973905909
+
+
+            <br>
+
+
+            <a
+                href="https://wa.me/917973905909"
+                target="_blank">
+
+                WhatsApp
+
+            </a>
+
+
+            <a
+                href="tel:+917973905909">
+
+                Call
+
+            </a>
+
+        </div>
+
+
+
+        <div class="number">
+
+            📱 8699961210
+
+
+            <br>
+
+
+            <a
+                href="https://wa.me/918699961210"
+                target="_blank">
+
+                WhatsApp
+
+            </a>
+
+
+            <a
+                href="tel:+918699961210">
+
+                Call
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EMAIL -->
+
+    <div class="email-box">
+
+
+        <div class="email-card">
+
+            📧
+
+            <a
+                href="mailto:dcentre748@gmail.com">
+
+                dcentre748@gmail.com
+
+            </a>
+
+        </div>
+
+
+        <div class="email-card">
+
+            📧
+
+            <a
+                href="mailto:csc47008@gmail.com">
+
+                csc47008@gmail.com
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <h3>
+                JS Digital Services
+            </h3>
+
+
+            <p>
+
+                Your trusted digital & CSC
+                service centre in Kot Ise Khan,
+                Moga.
+
+            </p>
+
+
+            <p style="margin-top:12px;">
+
+                📍 Near SBI Bank, Amritsar Road,
+                Kot Ise Khan, Moga, Punjab
+
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <a href="#home">
+                Home
+            </a>
+
+
+            <a href="#services">
+                Services
+            </a>
+
+
+            <a href="#about">
+                About
+            </a>
+
+
+            <a href="#request">
+                Request a Service
+            </a>
+
+
+            <a href="#location">
+                Location
+            </a>
+
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+
+            <a href="tel:+917973905909">
+
+                📞 7973905909
+
+            </a>
+
+
+            <a
+                href="https://wa.me/917973905909"
+                target="_blank">
+
+                💬 WhatsApp
+
+            </a>
+
+
+            <a href="tel:+918699961210">
+
+                📞 8699961210
+
+            </a>
+
+
+            <a
+                href="https://wa.me/918699961210"
+                target="_blank">
+
+                💬 WhatsApp
+
+            </a>
+
+
+            <a href="mailto:dcentre748@gmail.com">
+
+                📧 dcentre748@gmail.com
+
+            </a>
+
+
+            <a href="mailto:csc47008@gmail.com">
+
+                📧 csc47008@gmail.com
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 JS Digital Services.
+        All Rights Reserved.
+
+    </div>
 
 </footer>
 
 
-<!-- ================= FLOATING WHATSAPP ================= -->
+
+<!-- =========================
+     FLOATING WHATSAPP
+========================= -->
 
 <a
     class="floating-whatsapp"
     href="https://wa.me/917973905909"
     target="_blank"
-    title="WhatsApp JS Digital Services">
+    title="Chat on WhatsApp">
 
     💬
 
 </a>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
-function sendRequest() {
+    function sendRequest() {
 
-    const name =
-        document.getElementById("customerName").value.trim();
+        const name =
+            document.getElementById("customerName").value.trim();
 
-    const service =
-        document.getElementById("serviceSelect").value;
+        const service =
+            document.getElementById("serviceSelect").value;
 
-    const message =
-        document.getElementById("customerMessage").value.trim();
+        const message =
+            document.getElementById("customerMessage").value.trim();
 
 
-    if (!name) {
+        if (!name) {
 
-        alert("Please enter your name.");
+            alert("Please enter your name.");
 
-        return;
+            return;
+
+        }
+
+
+        if (!service) {
+
+            alert("Please select a service.");
+
+            return;
+
+        }
+
+
+        let text =
+            "Hello, I want to enquire about your service.%0A%0A";
+
+
+        text +=
+            "Name: " +
+            encodeURIComponent(name) +
+            "%0A";
+
+
+        text +=
+            "Service: " +
+            encodeURIComponent(service) +
+            "%0A";
+
+
+        if (message) {
+
+            text +=
+                "Requirement: " +
+                encodeURIComponent(message) +
+                "%0A";
+
+        }
+
+
+        text +=
+            "%0APlease guide me regarding the required documents and process.";
+
+
+        const whatsappURL =
+            "https://wa.me/917973905909?text=" +
+            text;
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
 
     }
-
-
-    if (!service) {
-
-        alert("Please select a service.");
-
-        return;
-
-    }
-
-
-    let whatsappMessage =
-        "Hello, I want to enquire about JS Digital Services.%0A%0A" +
-        "Name: " +
-        encodeURIComponent(name) +
-        "%0AService: " +
-        encodeURIComponent(service);
-
-
-    if (message) {
-
-        whatsappMessage +=
-            "%0ARequirement: " +
-            encodeURIComponent(message);
-
-    }
-
-
-    const whatsappURL =
-        "https://wa.me/917973905909?text=" +
-        whatsappMessage;
-
-
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
-
-}
 
 </script>
 
 
 </body>
+
 </html>
