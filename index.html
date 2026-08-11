@@ -263,12 +263,6 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 
 <div class="hours-box">
 <h3>🕐 Opening Hours</h3>
-<div class="status-buttons">
-<button class="status-btn open-btn" onclick="setShopStatus('open')">🟢 Open</button>
-<button class="status-btn closed-btn" onclick="setShopStatus('closed')">🔴 Closed</button>
-<button class="status-btn holiday-btn" onclick="setShopStatus('holiday')">🎉 Holiday</button>
-</div>
-
 <div id="shopStatus" class="shop-status">⏳ Loading status...</div>
 
 <div class="timing">
@@ -282,8 +276,8 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 <button class="admin-toggle" onclick="toggleAdmin()">🔐 Admin Settings</button>
 
 <div id="adminPanel" class="admin-panel">
-<input type="email" id="adminEmail" value="dcentre748@gmail.com" placeholder="Admin Email">
-<input type="password" id="adminPassword" placeholder="Firebase Admin Password">
+<input type="email" id="adminEmail" value="dcentre748@gmail.com" placeholder="Admin Email" autocomplete="username" readonly>
+<input type="password" id="adminPassword" placeholder="Firebase Admin Password" autocomplete="current-password">
 <button class="admin-login" onclick="adminLogin()">Login</button>
 
 <div id="adminControls" class="admin-controls">
@@ -464,7 +458,11 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
       alert("Admin login successful!");
     } catch (error) {
       console.error("Firebase login error:", error);
-      alert("Login failed. Email/password check karein.");
+      if (error.code === "auth/invalid-credential" || error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
+        alert("Login failed. Email ya password galat hai.");
+      } else {
+        alert("Login failed. Firebase Authentication settings check karein.");
+      }
     }
   };
 
@@ -529,6 +527,10 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
   };
 
   window.resetShopStatus = function () {
+    if (!auth.currentUser) {
+      alert("Pehle Admin login karein.");
+      return;
+    }
     window.setShopStatus("open");
   };
 
