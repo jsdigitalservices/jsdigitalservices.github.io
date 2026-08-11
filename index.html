@@ -292,6 +292,7 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 <button class="admin-closed" onclick="setShopStatus('closed')">🔴 Closed</button>
 <button class="admin-holiday" onclick="setShopStatus('holiday')">🎉 Holiday</button>
 <button class="admin-reset" onclick="resetShopStatus()">↩ Reset</button>
+<button class="admin-reset" onclick="adminLogout()">🚪 Logout</button>
 </div>
 
 <p id="firebaseMessage" class="firebase-message">Firebase status loading...</p>
@@ -329,189 +330,22 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 
 <!-- Firebase + website functions -->
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+  /* =========================================================
+     FIREBASE + ADMIN SHOP STATUS
+     ========================================================= */
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCqjMF4m68UZZ4IL9Fdvg4CWcPbmlt49Fk",
-  authDomain: "js-digital-services.firebaseapp.com",
-  projectId: "js-digital-services",
-  storageBucket: "js-digital-services.firebasestorage.app",
-  messagingSenderId: "189946883673",
-  appId: "1:189946883673:web:07a559d0fb54ec34740b48"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
-
-const statusRef = doc(db, "siteSettings", "status");
-const ADMIN_EMAIL = "dcentre748@gmail.com";
-
-function showStatus(status) {
-  const shopStatus = document.getElementById("shopStatus");
-
-  if (status === "open") {
-    shopStatus.innerHTML = "🟢 Open Today";
-    shopStatus.style.background = "#e8f8ee";
-    shopStatus.style.color = "#16833b";
-  } else if (status === "closed") {
-    shopStatus.innerHTML = "🔴 Closed Today";
-    shopStatus.style.background = "#fdeaea";
-    shopStatus.style.color = "#d32f2f";
-  } else if (status === "holiday") {
-    shopStatus.innerHTML = "🎉 Holiday Today";
-    shopStatus.style.background = "#fff3df";
-    shopStatus.style.color = "#e67e00";
-  }
-}
-
-async function loadShopStatus() {
-  try {
-    const snap = await getDoc(statusRef);
-
-    if (snap.exists() && snap.data().status) {
-      showStatus(snap.data().status);
-      console.log("Firebase Status:", snap.data());
-    } else {
-      showStatus("open");
-      await setDoc(statusRef, { status: "open" }, { merge: true });
-      console.log("Status document created.");
-    }
-
-    document.getElementById("firebaseMessage").textContent =
-      "Firebase connected successfully!";
-  } catch (error) {
-    console.error("Firebase status error:", error);
-    showStatus("open");
-    document.getElementById("firebaseMessage").textContent =
-      "Firebase read error: " + error.message;
-  }
-}
-
-window.setShopStatus = async function(status) {
-  const user = auth.currentUser;
-
-  if (!user) {
-    alert("Pehle Admin Settings me Firebase email/password se Login karein.");
-    return;
-  }
-
-  if (user.email !== ADMIN_EMAIL) {
-    alert("Admin access allowed nahi hai.");
-    return;
-  }
-
-  try {
-    await setDoc(statusRef, {
-      status: status,
-      updatedBy: user.email,
-      updatedAt: new Date().toISOString()
-    }, { merge: true });
-
-    showStatus(status);
-    alert("Shop status Firebase me save ho gaya.");
-  } catch (error) {
-    console.error("Firebase write error:", error);
-    alert("Status save nahi hua: " + error.message);
-  }
-};
-
-window.resetShopStatus = async function() {
-  await window.setShopStatus("open");
-};
-
-window.toggleAdmin = function() {
-  const panel = document.getElementById("adminPanel");
-  panel.style.display = panel.style.display === "block" ? "none" : "block";
-};
-
-window.adminLogin = async function() {
-  const email = document.getElementById("adminEmail").value.trim();
-  const password = document.getElementById("adminPassword").value;
-
-  if (!email || !password) {
-    alert("Email aur password enter karein.");
-    return;
-  }
-
-  if (email !== ADMIN_EMAIL) {
-    alert("Sirf authorized admin email se login karein.");
-    return;
-  }
-
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-
-    document.getElementById("adminControls").style.display = "block";
-    document.getElementById("firebaseMessage").textContent =
-      "Admin login successful. Firebase status control ready.";
-    alert("Admin login successful!");
-  } catch (error) {
-    console.error("Login error:", error);
-    alert("Login failed: " + error.message);
-  }
-};
-
-onAuthStateChanged(auth, (user) => {
-  if (user && user.email === ADMIN_EMAIL) {
-    document.getElementById("adminControls").style.display = "block";
-  }
-});
-
-window.sendRequest = function() {
-  const name = document.getElementById("customerName").value.trim();
-  const service = document.getElementById("serviceSelect").value;
-  const message = document.getElementById("customerMessage").value.trim();
-
-  if (!name) {
-    alert("Please enter your name.");
-    return;
-  }
-
-  if (!service) {
-    alert("Please select a service.");
-    return;
-  }
-
-  let text = "Hello, I want to enquire about your service.\n\n";
-  text += "Name: " + name + "\n";
-  text += "Service: " + service + "\n";
-
-  if (message) {
-    text += "Requirement: " + message + "\n";
-  }
-
-  text += "\nPlease guide me regarding the required documents and process.";
-
-  const whatsappURL =
-    "https://wa.me/917973905909?text=" + encodeURIComponent(text);
-
-  window.open(whatsappURL, "_blank");
-};
-
-loadShopStatus();
-</script>
-
-
-<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
   import {
-    getFirestore, doc, getDoc, setDoc
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc
   } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
   import {
-    getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
   } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
   const firebaseConfig = {
@@ -527,10 +361,15 @@ loadShopStatus();
   const db = getFirestore(app);
   const auth = getAuth(app);
   const statusRef = doc(db, "siteSettings", "status");
+  const ADMIN_EMAIL = "dcentre748@gmail.com";
 
+  /* ---------------------------------------------------------
+     SHOP STATUS DISPLAY
+     --------------------------------------------------------- */
   function applyStatus(status) {
     const el = document.getElementById("shopStatus");
     if (!el) return;
+
     if (status === "closed") {
       el.innerHTML = "🔴 Closed Today";
       el.style.background = "#fdeaea";
@@ -546,69 +385,209 @@ loadShopStatus();
     }
   }
 
-  async function loadStatus() {
+  /* ---------------------------------------------------------
+     LOAD STATUS FROM FIRESTORE
+     --------------------------------------------------------- */
+  async function loadShopStatus() {
+    const message = document.getElementById("firebaseMessage");
+
     try {
       const snap = await getDoc(statusRef);
-      applyStatus(snap.exists() ? (snap.data().isOpen || "open") : "open");
-      console.log("Firebase Status:", snap.exists() ? snap.data() : "not found");
-    } catch (e) {
-      console.error("Firebase read error:", e);
+
+      if (snap.exists()) {
+        const data = snap.data();
+        applyStatus(data.status || data.isOpen || "open");
+        console.log("Firebase Status:", data);
+      } else {
+        // First-time default. This is only displayed locally;
+        // it is NOT written by a public visitor.
+        applyStatus("open");
+        console.log("Status document not found. Showing Open by default.");
+      }
+
+      if (message) {
+        message.textContent = "Firebase connected successfully!";
+        message.style.color = "#16833b";
+      }
+    } catch (error) {
+      console.error("Firebase status read error:", error);
       applyStatus("open");
+
+      if (message) {
+        message.textContent = "Firebase read error: " + error.message;
+        message.style.color = "#d32f2f";
+      }
     }
   }
 
-  window.setShopStatus = async function(status) {
-    if (!auth.currentUser) {
-      alert("Please login as Admin first.");
-      return;
-    }
-    try {
-      await setDoc(statusRef, {
-        isOpen: status,
-        updatedBy: auth.currentUser.email,
-        updatedAt: new Date().toISOString()
-      });
-      applyStatus(status);
-      alert("Status Firebase mein save ho gaya.");
-    } catch (e) {
-      console.error("Firebase write error:", e);
-      alert("Status save nahi hua. Firestore Rules check karein.");
-    }
+  /* ---------------------------------------------------------
+     ADMIN PANEL
+     --------------------------------------------------------- */
+  window.toggleAdmin = function () {
+    const panel = document.getElementById("adminPanel");
+    if (!panel) return;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
   };
 
-  window.adminLogin = async function() {
-    const email = document.getElementById("adminEmail").value.trim();
-    const password = document.getElementById("adminPassword").value;
+  /* ---------------------------------------------------------
+     ADMIN LOGIN
+     --------------------------------------------------------- */
+  window.adminLogin = async function () {
+    const emailEl = document.getElementById("adminEmail");
+    const passwordEl = document.getElementById("adminPassword");
+    const controls = document.getElementById("adminControls");
+    const message = document.getElementById("firebaseMessage");
+
+    const email = emailEl.value.trim().toLowerCase();
+    const password = passwordEl.value;
+
     if (!email || !password) {
       alert("Admin Email aur Password enter karein.");
       return;
     }
+
+    if (email !== ADMIN_EMAIL) {
+      alert("Sirf authorized admin email se login karein.");
+      return;
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      document.getElementById("adminControls").style.display = "block";
-      document.getElementById("adminPassword").value = "";
+      passwordEl.value = "";
+
+      if (controls) controls.style.display = "block";
+      if (message) {
+        message.textContent = "Admin login successful. Status control ready.";
+        message.style.color = "#16833b";
+      }
+
       alert("Admin login successful!");
-    } catch (e) {
-      console.error("Login error:", e);
-      alert("Login failed. Firebase Authentication mein Admin account check karein.");
+    } catch (error) {
+      console.error("Firebase login error:", error);
+      alert("Login failed. Email/password check karein.");
     }
   };
 
-  window.adminLogout = async function() {
-    await signOut(auth);
-    document.getElementById("adminControls").style.display = "none";
-    alert("Admin logout ho gaya.");
+  /* ---------------------------------------------------------
+     ADMIN LOGOUT
+     --------------------------------------------------------- */
+  window.adminLogout = async function () {
+    try {
+      await signOut(auth);
+      alert("Admin logout ho gaya.");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
   };
 
-  window.resetShopStatus = function() {
+  /* ---------------------------------------------------------
+     SAVE SHOP STATUS TO FIRESTORE
+     --------------------------------------------------------- */
+  window.setShopStatus = async function (status) {
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("Pehle Admin Settings me Firebase email/password se Login karein.");
+      return;
+    }
+
+    if ((user.email || "").toLowerCase() !== ADMIN_EMAIL) {
+      alert("Admin access allowed nahi hai.");
+      return;
+    }
+
+    if (!["open", "closed", "holiday"].includes(status)) {
+      alert("Invalid shop status.");
+      return;
+    }
+
+    try {
+      await setDoc(statusRef, {
+        status: status,
+        updatedBy: user.email,
+        updatedAt: new Date().toISOString()
+      }, { merge: true });
+
+      applyStatus(status);
+
+      const message = document.getElementById("firebaseMessage");
+      if (message) {
+        message.textContent = "Status Firebase mein save ho gaya!";
+        message.style.color = "#16833b";
+      }
+
+      alert("Status Firebase mein save ho gaya.");
+    } catch (error) {
+      console.error("Firebase write error:", error);
+      const message = document.getElementById("firebaseMessage");
+      if (message) {
+        message.textContent = "Firebase write error: " + error.message;
+        message.style.color = "#d32f2f";
+      }
+      alert("Status save nahi hua. Firebase Rules check karein.");
+    }
+  };
+
+  window.resetShopStatus = function () {
     window.setShopStatus("open");
   };
 
-  onAuthStateChanged(auth, user => {
-    document.getElementById("adminControls").style.display = user ? "block" : "none";
+  /* ---------------------------------------------------------
+     AUTH STATE
+     --------------------------------------------------------- */
+  onAuthStateChanged(auth, (user) => {
+    const controls = document.getElementById("adminControls");
+    const message = document.getElementById("firebaseMessage");
+
+    if (user && (user.email || "").toLowerCase() === ADMIN_EMAIL) {
+      if (controls) controls.style.display = "block";
+      if (message) {
+        message.textContent = "Admin logged in. You can change shop status.";
+        message.style.color = "#16833b";
+      }
+    } else {
+      if (controls) controls.style.display = "none";
+    }
   });
 
-  loadStatus();
+  /* ---------------------------------------------------------
+     WHATSAPP SERVICE REQUEST
+     --------------------------------------------------------- */
+  window.sendRequest = function () {
+    const name = document.getElementById("customerName").value.trim();
+    const service = document.getElementById("serviceSelect").value;
+    const message = document.getElementById("customerMessage").value.trim();
+
+    if (!name) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    if (!service) {
+      alert("Please select a service.");
+      return;
+    }
+
+    let text = "Hello, I want to enquire about your service.\n\n";
+    text += "Name: " + name + "\n";
+    text += "Service: " + service + "\n";
+
+    if (message) {
+      text += "Requirement: " + message + "\n";
+    }
+
+    text += "\nPlease guide me regarding the required documents and process.";
+
+    const whatsappURL =
+      "https://wa.me/917973905909?text=" + encodeURIComponent(text);
+
+    window.open(whatsappURL, "_blank");
+  };
+
+  /* ---------------------------------------------------------
+     START
+     --------------------------------------------------------- */
+  loadShopStatus();
   console.log("Firebase connected successfully!");
 </script>
 
