@@ -124,6 +124,88 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 .service-grid,.why-grid,.steps,.number-box,.email-box,.footer-grid{grid-template-columns:1fr}
 .home-service-box{padding:25px 18px}.moving-service{font-size:15px;padding:10px 18px}.moving-icon{font-size:32px}.moving-text{font-size:14px}
 }
+
+/* VOTER CARD PROMOTIONAL BANNER */
+.voter-ad{
+  margin: 35px auto 10px;
+  max-width: 1100px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(135deg,#7b1fa2,#e91e63 52%,#ff9800);
+  color:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.16);
+  position:relative;
+}
+.voter-ad-inner{
+  padding:38px 30px;
+  text-align:center;
+  position:relative;
+}
+.voter-ad-badge{
+  display:inline-block;
+  background:#fff;
+  color:#7b1fa2;
+  padding:7px 16px;
+  border-radius:30px;
+  font-weight:800;
+  font-size:14px;
+  margin-bottom:12px;
+}
+.voter-ad h2{
+  font-size:36px;
+  line-height:1.2;
+  margin-bottom:10px;
+}
+.voter-ad .punjabi{
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+.voter-ad p{
+  font-size:18px;
+  margin:7px auto;
+}
+.voter-ad-features{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
+}
+.voter-ad-features span{
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.3);
+  padding:9px 14px;
+  border-radius:25px;
+  font-weight:700;
+}
+.voter-ad-whatsapp{
+  display:inline-block;
+  margin-top:8px;
+  background:#25D366;
+  color:#fff;
+  padding:13px 24px;
+  border-radius:30px;
+  font-weight:800;
+  box-shadow:0 5px 15px rgba(0,0,0,.18);
+}
+.voter-ad-contact{
+  margin-top:13px;
+  font-size:17px;
+  font-weight:700;
+}
+.voter-ad-address{
+  margin-top:5px;
+  font-size:15px;
+}
+@media(max-width:700px){
+  .voter-ad{margin:25px 5% 5px}
+  .voter-ad-inner{padding:28px 17px}
+  .voter-ad h2{font-size:28px}
+  .voter-ad .punjabi{font-size:23px}
+  .voter-ad p{font-size:16px}
+}
+
 </style>
 </head>
 
@@ -137,6 +219,7 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 <nav>
 <a href="#home">Home</a>
 <a href="#services">Services</a>
+<a href="#voter-card-ad">Voter Card</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -166,6 +249,31 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 <a class="moving-service moving-5" href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20enquire%20about%20Aadhaar%20Services" target="_blank"><span class="moving-icon">🪪</span><span class="moving-text">AADHAAR SERVICES</span></a>
 </div>
 </section>
+
+
+<!-- =========================
+     VOTER CARD PROMOTIONAL AD
+     ========================= -->
+<section class="voter-ad" id="voter-card-ad">
+  <div class="voter-ad-inner">
+    <div class="voter-ad-badge">🗳️ VOTER CARD SERVICE</div>
+    <div class="punjabi">🏠 ਘਰ ਬੈਠੇ VOTER CARD ਬਣਵਾਓ</div>
+    <h2>Voter Card Online Assistance</h2>
+    <p>ਨਵਾਂ Voter Card ਬਣਵਾਉਣ ਲਈ Required Documents WhatsApp ਤੇ ਭੇਜੋ।</p>
+    <div class="voter-ad-features">
+      <span>🪪 New Voter Registration</span>
+      <span>📱 Online Assistance</span>
+      <span>📄 Document Guidance</span>
+      <span>💬 WhatsApp Service</span>
+    </div>
+    <a class="voter-ad-whatsapp" href="https://wa.me/917973905909?text=Hello%2C%20I%20want%20to%20apply%20for%20a%20Voter%20Card" target="_blank">
+      🟢 WhatsApp Now
+    </a>
+    <div class="voter-ad-contact">WhatsApp Only: 7973905909 &nbsp; | &nbsp; 8699961210</div>
+    <div class="voter-ad-address">📍 JS Digital Services — Amritsar Road, Kot Ise Khan</div>
+  </div>
+</section>
+
 
 <section>
 <div class="home-service-box">
