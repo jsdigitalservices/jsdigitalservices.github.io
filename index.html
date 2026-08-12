@@ -207,33 +207,28 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 }
 
 
-/* DOCUMENT UPLOAD SYSTEM */
-.upload-section{background:linear-gradient(135deg,#f7f0ff,#eef9ff)}
-.upload-box{max-width:850px;margin:auto;background:#fff;padding:35px;border-radius:22px;box-shadow:0 8px 28px rgba(0,0,0,.09);border:1px solid #e2e8f0}
-.upload-intro{text-align:center;margin-bottom:22px;color:#555}
-.upload-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.upload-box input,.upload-box select,.upload-box textarea{width:100%;padding:14px;border:1px solid #ccd6e0;border-radius:10px;font-size:16px;font-family:inherit}
-.upload-box textarea{min-height:100px;resize:vertical;grid-column:1/-1}
-.file-label{display:block;border:2px dashed #0875c1;border-radius:14px;padding:22px;text-align:center;background:#f5fbff;cursor:pointer;grid-column:1/-1}
-.file-label strong{display:block;color:#063970;font-size:18px;margin-bottom:5px}
-.file-label small{color:#666}
-#documentFiles{display:none}
-.selected-files{margin-top:10px;color:#555;font-size:14px;grid-column:1/-1}
-.upload-btn{grid-column:1/-1;border:0;background:linear-gradient(135deg,#25D366,#0875c1);color:#fff;padding:15px;border-radius:30px;font-size:17px;font-weight:800;cursor:pointer}
-.upload-btn:disabled{opacity:.65;cursor:not-allowed}
-.upload-progress{display:none;margin-top:18px;background:#eef3f7;border-radius:12px;overflow:hidden}
-.upload-progress-bar{height:12px;width:0;background:#25D366;transition:width .2s}
-.upload-message{margin-top:14px;text-align:center;font-weight:700}
-.upload-note{font-size:13px;color:#666;text-align:center;margin-top:14px}
-.admin-requests{display:none;margin-top:25px;padding:20px;background:#fff;border-radius:15px;border:1px solid #ddd}
-.admin-requests h4{color:#063970;margin-bottom:12px}
-.request-card{background:#f7f9fc;border:1px solid #e1e6eb;border-radius:12px;padding:14px;margin:10px 0}
-.request-card strong{color:#063970}
-.request-files a{display:block;color:#0875c1;font-weight:700;margin-top:7px;word-break:break-all}
+/* FREE WHATSAPP DOCUMENT SUBMISSION */
+.wa-doc-section{background:linear-gradient(135deg,#f3fbf6,#f2f7ff)}
+.wa-doc-box{max-width:850px;margin:auto;background:#fff;padding:34px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.09);border:1px solid #e4e9ef}
+.wa-doc-intro{text-align:center;margin-bottom:22px}
+.wa-doc-intro h3{color:#063970;font-size:27px;margin-bottom:7px}
+.wa-doc-intro p{color:#666}
+.wa-doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wa-doc-grid input,.wa-doc-grid select,.wa-doc-grid textarea{width:100%;box-sizing:border-box;padding:14px;border:1px solid #ccd6e0;border-radius:11px;font-size:16px;font-family:inherit}
+.wa-doc-grid textarea{grid-column:1/-1;min-height:90px;resize:vertical}
+.wa-file-label{grid-column:1/-1;display:block;border:2px dashed #25D366;border-radius:15px;padding:22px;text-align:center;background:#f6fff9;cursor:pointer}
+.wa-file-label strong{display:block;color:#128c45;font-size:19px;margin-bottom:6px}
+.wa-file-label small{color:#666}
+#waDocumentFiles{display:none}
+.wa-selected-files{grid-column:1/-1;background:#f7f9fb;border-radius:11px;padding:12px;color:#555;font-size:14px;min-height:20px}
+.wa-submit-btn{grid-column:1/-1;border:0;background:#25D366;color:#fff;padding:15px 22px;border-radius:30px;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 6px 16px rgba(37,211,102,.25)}
+.wa-submit-btn:hover{transform:translateY(-1px)}
+.wa-note{margin-top:15px;text-align:center;color:#666;font-size:13px;line-height:1.5}
+.wa-success{display:none;margin-top:15px;text-align:center;background:#ecfff3;color:#08783c;border-radius:12px;padding:12px;font-weight:700}
 @media(max-width:700px){
-  .upload-box{padding:22px 16px}
-  .upload-form-grid{grid-template-columns:1fr}
-  .upload-box textarea,.file-label,.upload-btn{grid-column:auto}
+ .wa-doc-box{padding:24px 16px}
+ .wa-doc-grid{grid-template-columns:1fr}
+ .wa-doc-grid textarea,.wa-file-label,.wa-selected-files,.wa-submit-btn{grid-column:auto}
 }
 
 </style>
@@ -250,7 +245,7 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 <a href="#home">Home</a>
 <a href="#services">Services</a>
 <a href="#voter-card-ad">Voter Card</a>
-<a href="#upload-documents">Upload Documents</a>
+<a href="#upload-documents">Send Documents</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -365,21 +360,21 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 
 
 <!-- =========================
-     CUSTOMER DOCUMENT UPLOAD
+     FREE WHATSAPP DOCUMENT SUBMISSION
      ========================= -->
-<section class="upload-section" id="upload-documents">
-  <h2 class="section-title">📤 Submit Your Documents</h2>
-  <div class="upload-box">
-    <div class="upload-intro">
-      <h3 style="color:#063970;font-size:25px;">🏠 Ghar Baithe Service Paaye</h3>
-      <p>Apna naam, WhatsApp number aur service select karke required documents securely upload karein.</p>
+<section class="wa-doc-section" id="upload-documents">
+  <h2 class="section-title">📲 Submit Documents on WhatsApp</h2>
+  <div class="wa-doc-box">
+    <div class="wa-doc-intro">
+      <h3>🏠 ਘਰ ਬੈਠੇ Service Paao</h3>
+      <p>Apni details bharo, documents select karo aur WhatsApp par directly bhejo.</p>
     </div>
 
-    <div class="upload-form-grid">
-      <input type="text" id="uploadCustomerName" placeholder="Your Name *" maxlength="80">
-      <input type="tel" id="uploadCustomerPhone" placeholder="WhatsApp Number *" maxlength="15">
+    <div class="wa-doc-grid">
+      <input type="text" id="waCustomerName" placeholder="Your Name *" maxlength="80">
+      <input type="tel" id="waCustomerPhone" placeholder="WhatsApp Number *" maxlength="15">
 
-      <select id="uploadService">
+      <select id="waService">
         <option value="">Select a Service *</option>
         <option>Voter Card</option>
         <option>PAN Card</option>
@@ -393,31 +388,28 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
         <option>Other Service</option>
       </select>
 
-      <textarea id="uploadRequirement" placeholder="Write your requirement (optional)" maxlength="500"></textarea>
+      <textarea id="waRequirement" placeholder="Write your requirement (optional)" maxlength="500"></textarea>
 
-      <label class="file-label" for="documentFiles">
-        <strong>📎 Choose Documents</strong>
-        <small>PDF, JPG, JPEG or PNG • Maximum 5 files • Maximum 10 MB each</small>
-        <input id="documentFiles" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" multiple>
+      <label class="wa-file-label" for="waDocumentFiles">
+        <strong>📎 Select Your Documents</strong>
+        <small>PDF, JPG, JPEG or PNG • Up to 10 files • Max 10 MB each</small>
+        <input id="waDocumentFiles" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" multiple>
       </label>
 
-      <div id="selectedFiles" class="selected-files">No files selected.</div>
+      <div id="waSelectedFiles" class="wa-selected-files">No documents selected.</div>
 
-      <button id="uploadDocumentsBtn" class="upload-btn" type="button" onclick="submitDocuments()">
-        🔐 Securely Upload Documents
+      <button class="wa-submit-btn" type="button" onclick="sendDocumentsOnWhatsApp()">
+        🟢 Send Documents on WhatsApp
       </button>
     </div>
 
-    <div id="uploadProgress" class="upload-progress">
-      <div id="uploadProgressBar" class="upload-progress-bar"></div>
-    </div>
-    <div id="uploadMessage" class="upload-message"></div>
-    <p class="upload-note">🔒 Documents are stored in Firebase Cloud Storage. Only authorized access should be allowed by your Firebase Security Rules.</p>
+    <div id="waSuccess" class="wa-success"></div>
 
-    <div id="adminRequests" class="admin-requests">
-      <h4>📂 Recent Customer Document Requests</h4>
-      <div id="adminRequestsList">Loading...</div>
-    </div>
+    <p class="wa-note">
+      🔒 <b>Free service:</b> Documents Firebase Storage mein save nahi hote.
+      Supported mobile browsers mein selected files WhatsApp ke share sheet ke through bheje ja sakte hain.
+      Agar direct file sharing available na ho, WhatsApp khulega aur aap files manually attach kar sakte hain.
+    </p>
   </div>
 </section>
 
@@ -502,7 +494,7 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 </div>
 <div>
 <h3>Quick Links</h3>
-<a href="#home">Home</a><a href="#services">Services</a><a href="#voter-card-ad">Voter Card</a><a href="#upload-documents">Upload Documents</a><a href="#about">About</a><a href="#request">Request a Service</a><a href="#location">Location</a><a href="#contact">Contact</a>
+<a href="#home">Home</a><a href="#services">Services</a><a href="#voter-card-ad">Voter Card</a><a href="#upload-documents">Send Documents</a><a href="#about">About</a><a href="#request">Request a Service</a><a href="#location">Location</a><a href="#contact">Contact</a>
 </div>
 <div>
 <h3>Contact</h3>
@@ -529,29 +521,16 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
   import {
     getFirestore,
-    collection,
     doc,
     getDoc,
-    setDoc,
-    addDoc,
-    query,
-    orderBy,
-    limit,
-    getDocs
+    setDoc
   } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
   import {
     getAuth,
     signInWithEmailAndPassword,
-    signInAnonymously,
     signOut,
     onAuthStateChanged
   } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-  import {
-    getStorage,
-    ref as storageRef,
-    uploadBytesResumable,
-    getDownloadURL
-  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyCqjMF4m68UZZ4IL9Fdvg4CWcPbmlt49Fk",
@@ -565,12 +544,8 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   const auth = getAuth(app);
-  const storage = getStorage(app);
   const statusRef = doc(db, "siteSettings", "status");
   const ADMIN_EMAIL = "dcentre748@gmail.com";
-  const DOCUMENT_MAX_FILES = 5;
-  const DOCUMENT_MAX_SIZE = 10 * 1024 * 1024;
-  const ALLOWED_DOCUMENT_TYPES = ["application/pdf", "image/jpeg", "image/png"];
 
   /* ---------------------------------------------------------
      SHOP STATUS DISPLAY
@@ -671,7 +646,6 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
       }
 
       alert("Admin login successful!");
-      loadAdminDocumentRequests();
     } catch (error) {
       console.error("Firebase login error:", error);
       if (error.code === "auth/invalid-credential" || error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
@@ -763,11 +737,8 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
         message.textContent = "Admin logged in. You can change shop status.";
         message.style.color = "#16833b";
       }
-      loadAdminDocumentRequests();
     } else {
       if (controls) controls.style.display = "none";
-      const box = document.getElementById("adminRequests");
-      if (box) box.style.display = "none";
     }
   });
 
@@ -807,275 +778,104 @@ header{flex-direction:column;gap:12px}nav{gap:12px;flex-wrap:wrap;justify-conten
 
 
   /* ---------------------------------------------------------
-     CUSTOMER DOCUMENT UPLOAD
-     Uses anonymous Firebase Authentication for the customer
-     and stores metadata in Firestore + files in Cloud Storage.
+     FREE WHATSAPP DOCUMENT SUBMISSION
+     No Firebase Storage required.
      --------------------------------------------------------- */
-  function uploadElement(id) {
-    return document.getElementById(id);
-  }
-
-  function showUploadMessage(text, good = false) {
-    const el = uploadElement("uploadMessage");
-    if (!el) return;
-    el.textContent = text;
-    el.style.color = good ? "#16833b" : "#d32f2f";
-  }
-
-  function updateSelectedFiles() {
-    const input = uploadElement("documentFiles");
-    const output = uploadElement("selectedFiles");
-    if (!input || !output) return;
-
-    if (!input.files.length) {
-      output.textContent = "No files selected.";
-      return;
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("waDocumentFiles");
+    const output = document.getElementById("waSelectedFiles");
+    if (input && output) {
+      input.addEventListener("change", function () {
+        const files = Array.from(input.files);
+        if (!files.length) {
+          output.textContent = "No documents selected.";
+          return;
+        }
+        output.textContent = files.map(function(file) {
+          return "📎 " + file.name + " (" + (file.size / 1024 / 1024).toFixed(2) + " MB)";
+        }).join(" • ");
+      });
     }
-
-    output.textContent = Array.from(input.files)
-      .map((file) => `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`)
-      .join(" • ");
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const input = uploadElement("documentFiles");
-    if (input) input.addEventListener("change", updateSelectedFiles);
   });
 
-  async function ensureAnonymousCustomerAuth() {
-    if (auth.currentUser) return auth.currentUser;
-    const result = await signInAnonymously(auth);
-    return result.user;
-  }
-
-  window.submitDocuments = async function () {
-    const name = uploadElement("uploadCustomerName").value.trim();
-    const phone = uploadElement("uploadCustomerPhone").value.trim();
-    const service = uploadElement("uploadService").value;
-    const requirement = uploadElement("uploadRequirement").value.trim();
-    const fileInput = uploadElement("documentFiles");
-    const button = uploadElement("uploadDocumentsBtn");
-    const progress = uploadElement("uploadProgress");
-    const progressBar = uploadElement("uploadProgressBar");
-
-    showUploadMessage("", true);
+  window.sendDocumentsOnWhatsApp = async function () {
+    const name = document.getElementById("waCustomerName").value.trim();
+    const phone = document.getElementById("waCustomerPhone").value.trim();
+    const service = document.getElementById("waService").value;
+    const requirement = document.getElementById("waRequirement").value.trim();
+    const input = document.getElementById("waDocumentFiles");
+    const success = document.getElementById("waSuccess");
+    const files = Array.from(input.files || []);
 
     if (!name || !phone || !service) {
-      showUploadMessage("Please enter Name, WhatsApp Number and Service.");
+      alert("Please enter Name, WhatsApp Number and Service.");
       return;
     }
 
     if (!/^[0-9+() -]{8,15}$/.test(phone)) {
-      showUploadMessage("Please enter a valid WhatsApp number.");
+      alert("Please enter a valid WhatsApp number.");
       return;
     }
 
-    if (!fileInput.files.length) {
-      showUploadMessage("Please select at least one document.");
+    if (!files.length) {
+      alert("Please select at least one document.");
       return;
     }
 
-    if (fileInput.files.length > DOCUMENT_MAX_FILES) {
-      showUploadMessage(`Maximum ${DOCUMENT_MAX_FILES} documents allowed per request.`);
+    if (files.length > 10) {
+      alert("Maximum 10 documents select kar sakte hain.");
       return;
     }
 
-    for (const file of fileInput.files) {
-      if (!ALLOWED_DOCUMENT_TYPES.includes(file.type)) {
-        showUploadMessage(`Unsupported file type: ${file.name}. Only PDF, JPG/JPEG and PNG are allowed.`);
+    const allowed = ["application/pdf", "image/jpeg", "image/png"];
+    for (const file of files) {
+      if (!allowed.includes(file.type)) {
+        alert("Only PDF, JPG, JPEG and PNG files are allowed.");
         return;
       }
-      if (file.size > DOCUMENT_MAX_SIZE) {
-        showUploadMessage(`${file.name} is larger than 10 MB.`);
+      if (file.size > 10 * 1024 * 1024) {
+        alert(file.name + " 10 MB se bada hai.");
         return;
       }
     }
 
-    button.disabled = true;
-    button.textContent = "⏳ Uploading...";
-    progress.style.display = "block";
-    progressBar.style.width = "0%";
+    const fileNames = files.map(f => "• " + f.name).join("\n");
+    const text =
+      "Hello JS Digital Services,\n\n" +
+      "I want to apply for: " + service + "\n" +
+      "Name: " + name + "\n" +
+      "My WhatsApp: " + phone + "\n" +
+      (requirement ? "Requirement: " + requirement + "\n" : "") +
+      "\nSelected Documents:\n" + fileNames +
+      "\n\nI am sending my documents here for processing.";
 
-    try {
-      const user = await ensureAnonymousCustomerAuth();
-      const requestDoc = await addDoc(collection(db, "documentRequests"), {
-        customerName: name,
-        customerPhone: phone,
-        service: service,
-        requirement: requirement,
-        customerUid: user.uid,
-        createdAt: new Date().toISOString(),
-        status: "new"
-      });
-
-      let completedBytes = 0;
-      const totalBytes = Array.from(fileInput.files).reduce((sum, file) => sum + file.size, 0);
-      const uploadedFiles = [];
-
-      for (const file of fileInput.files) {
-        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-        const path = `documentRequests/${user.uid}/${requestDoc.id}/${Date.now()}_${safeName}`;
-        const fileRef = storageRef(storage, path);
-        const metadata = {
-          contentType: file.type,
-          customMetadata: {
-            requestId: requestDoc.id,
-            customerUid: user.uid,
-            service: service
-          }
-        };
-
-        await new Promise((resolve, reject) => {
-          const task = uploadBytesResumable(fileRef, file, metadata);
-
-          task.on("state_changed",
-            (snapshot) => {
-              const current = completedBytes + snapshot.bytesTransferred;
-              const percent = totalBytes ? Math.round((current / totalBytes) * 100) : 0;
-              progressBar.style.width = percent + "%";
-            },
-            reject,
-            async () => {
-              try {
-                uploadedFiles.push({
-                  name: file.name,
-                  path: path,
-                  size: file.size,
-                  contentType: file.type
-                });
-                completedBytes += file.size;
-                resolve();
-              } catch (error) {
-                reject(error);
-              }
-            }
-          );
-        });
-      }
-
-      // Store file metadata separately from the public-facing form.
-      await setDoc(doc(db, "documentRequests", requestDoc.id), {
-        files: uploadedFiles,
-        status: "new",
-        uploadedAt: new Date().toISOString()
-      }, { merge: true });
-
-      progressBar.style.width = "100%";
-      showUploadMessage("✅ Documents uploaded successfully! We will contact you on WhatsApp.", true);
-
-      // Open WhatsApp with the request ID, without putting document links in WhatsApp.
-      const waText =
-        "Hello JS Digital Services,%0A%0A" +
-        "Document Request Submitted.%0A" +
-        "Name: " + encodeURIComponent(name) + "%0A" +
-        "Service: " + encodeURIComponent(service) + "%0A" +
-        "Request ID: " + encodeURIComponent(requestDoc.id) + "%0A%0A" +
-        "Please check my uploaded documents and guide me.";
-      window.open("https://wa.me/917973905909?text=" + waText, "_blank");
-
-      uploadElement("uploadCustomerName").value = "";
-      uploadElement("uploadCustomerPhone").value = "";
-      uploadElement("uploadService").value = "";
-      uploadElement("uploadRequirement").value = "";
-      fileInput.value = "";
-      updateSelectedFiles();
-
-    } catch (error) {
-      console.error("Document upload error:", error);
-      let msg = "Upload failed. ";
-      if (error.code === "auth/operation-not-allowed") {
-        msg += "Firebase Anonymous Authentication is not enabled yet.";
-      } else if (error.code === "storage/unauthorized") {
-        msg += "Firebase Storage Rules are blocking this upload.";
-      } else if (error.code === "permission-denied") {
-        msg += "Firestore Rules are blocking this request.";
-      } else {
-        msg += error.message || "Please try again.";
-      }
-      showUploadMessage(msg);
-    } finally {
-      button.disabled = false;
-      button.textContent = "🔐 Securely Upload Documents";
-    }
-  };
-
-  async function loadAdminDocumentRequests() {
-    const user = auth.currentUser;
-    const box = uploadElement("adminRequests");
-    const list = uploadElement("adminRequestsList");
-
-    if (!user || (user.email || "").toLowerCase() !== ADMIN_EMAIL) {
-      if (box) box.style.display = "none";
-      return;
-    }
-
-    if (!box || !list) return;
-    box.style.display = "block";
-    list.textContent = "Loading...";
-
-    try {
-      const q = query(collection(db, "documentRequests"), orderBy("createdAt", "desc"), limit(20));
-      const snap = await getDocs(q);
-
-      if (snap.empty) {
-        list.textContent = "No customer document requests yet.";
-        return;
-      }
-
-      list.innerHTML = "";
-      snap.forEach((docSnap) => {
-        const data = docSnap.data();
-        const card = document.createElement("div");
-        card.className = "request-card";
-
-        const title = document.createElement("div");
-        title.innerHTML = `<strong>${escapeHtml(data.customerName || "Customer")}</strong> — ${escapeHtml(data.service || "Service")}`;
-
-        const phone = document.createElement("div");
-        phone.textContent = "WhatsApp: " + (data.customerPhone || "-");
-
-        const id = document.createElement("div");
-        id.textContent = "Request ID: " + docSnap.id;
-
-        const files = document.createElement("div");
-        files.className = "request-files";
-
-        (data.files || []).forEach(async (file) => {
-          const a = document.createElement("a");
-          a.href = "#";
-          a.textContent = "⏳ " + file.name;
-          a.addEventListener("click", async (event) => {
-            event.preventDefault();
-            try {
-              const url = await getDownloadURL(storageRef(storage, file.path));
-              window.open(url, "_blank", "noopener");
-            } catch (error) {
-              alert("File open nahi ho saki: " + error.message);
-            }
+    // Try native Web Share with actual files first.
+    if (navigator.share && navigator.canShare) {
+      try {
+        if (navigator.canShare({ files: files })) {
+          await navigator.share({
+            title: "JS Digital Services - Documents",
+            text: text,
+            files: files
           });
-          files.appendChild(a);
-        });
-
-        card.appendChild(title);
-        card.appendChild(phone);
-        card.appendChild(id);
-        card.appendChild(files);
-        list.appendChild(card);
-      });
-    } catch (error) {
-      console.error("Admin request load error:", error);
-      list.textContent = "Could not load requests: " + error.message;
+          success.style.display = "block";
+          success.textContent = "✅ Share window opened. WhatsApp select karke documents send kar dein.";
+          return;
+        }
+      } catch (error) {
+        if (error && error.name === "AbortError") return;
+      }
     }
-  }
 
-  function escapeHtml(value) {
-    return String(value)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
+    // Fallback: open WhatsApp with the prepared message.
+    // Browsers cannot silently attach local files to a WhatsApp web URL.
+    const waUrl = "https://wa.me/917973905909?text=" + encodeURIComponent(text);
+    window.open(waUrl, "_blank");
+
+    success.style.display = "block";
+    success.textContent =
+      "✅ WhatsApp open ho gaya. Ab paperclip/attachment button se selected documents attach karke Send kar dein.";
+  };
 
 
   /* ---------------------------------------------------------
